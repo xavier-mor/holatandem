@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/qr",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
