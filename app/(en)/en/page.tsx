@@ -628,7 +628,7 @@ export default function HomeEn() {
             <div className="founder-card">
               <div className="avatar">
                 <Image
-                  src="/assets/founder.jpg"
+                  src="/assets/founder2.jpg"
                   alt="Elena Ignat, founder of HolaTandem"
                   width={104}
                   height={104}
@@ -639,10 +639,22 @@ export default function HomeEn() {
                 <h3>Elena Ignat</h3>
                 <div className="role">Founder · Costa del Sol</div>
                 <p>
-                  Hi, I&apos;m Elena. I build and run your WhatsApp assistant
-                  myself, right here on the Costa del Sol — no call centre, no
-                  faceless agency. I&apos;ll set it up for your business in
-                  person, and I&apos;m one message away whenever you need me.
+                  Elena is an engineer by training with 15+ years&apos; experience
+                  leading transformation and process improvement across banking,
+                  fintech and B2B SaaS.
+                </p>
+                <p>
+                  A PMP-certified project manager and Lean Six Sigma Black Belt,
+                  she has spent her career redesigning how businesses work — not
+                  simply adding technology, but improving how work actually flows
+                  before automating it.
+                </p>
+                <p>
+                  She founded HolaTandem with a simple belief: the advantages of
+                  AI shouldn&apos;t be reserved for large organisations. Today,
+                  she helps small and medium-sized businesses put practical AI to
+                  work — saving time, improving customer service and creating new
+                  opportunities for growth.
                 </p>
                 <div className="founder-points">
                   <span>
@@ -720,7 +732,7 @@ export default function HomeEn() {
                 <div className="faq-a">
                   Yes. We use GDPR-compliant, EU-based tools and never sell your
                   data. See our{" "}
-                  <a href="/privacy">Privacy Policy</a> for the details.
+                  <a href="/en/privacy">Privacy Policy</a> for the details.
                 </div>
               </details>
               <details>
@@ -868,8 +880,8 @@ export default function HomeEn() {
             </div>
             <div className="fcol">
               <h4>Legal</h4>
-              <a href="/privacy">Privacy Policy</a>
-              <a href="/aviso-legal">Legal Notice</a>
+              <a href="/en/privacy">Privacy Policy</a>
+              <a href="/en/legal-notice">Legal Notice</a>
             </div>
           </div>
           <div className="fbot">

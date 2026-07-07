@@ -158,7 +158,7 @@ footer .fbot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 
 .founder-card{display:flex;gap:28px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:22px;padding:36px;box-shadow:var(--shadow);max-width:880px;margin:0 auto;text-align:left}
 .founder-card .avatar{width:104px;height:104px;border-radius:50%;background:var(--grad);overflow:hidden;flex:none}
-.founder-card .avatar img{width:150%;height:150%;object-fit:cover;object-position:50% 30%;display:block;margin-left:-25%}
+.founder-card .avatar img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;display:block}
 .founder-card h3{font-family:var(--font-manrope),sans-serif;font-weight:800;color:var(--navy);font-size:1.15rem;margin-bottom:2px}
 .founder-card .role{color:var(--teal);font-weight:700;font-size:.9rem;margin-bottom:12px}
 .founder-card p{font-size:1rem;margin-bottom:14px}

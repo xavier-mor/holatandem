@@ -634,7 +634,7 @@ export default function HomeEs() {
             <div className="founder-card">
               <div className="avatar">
                 <Image
-                  src="/assets/founder.jpg"
+                  src="/assets/founder2.jpg"
                   alt="Elena Ignat, fundadora de HolaTandem"
                   width={104}
                   height={104}
@@ -645,10 +645,23 @@ export default function HomeEs() {
                 <h3>Elena Ignat</h3>
                 <div className="role">Fundadora · Costa del Sol</div>
                 <p>
-                  Hola, soy Elena. Creo y gestiono tu asistente de WhatsApp
-                  personalmente, aquí en la Costa del Sol — sin call center, sin
-                  agencia anónima. Lo configuro para tu negocio en persona y
-                  estoy a un mensaje de distancia cuando me necesites.
+                  Elena es ingeniera de formación con más de 15 años de
+                  experiencia liderando transformación y mejora de procesos en
+                  banca, fintech y SaaS B2B.
+                </p>
+                <p>
+                  Directora de proyectos certificada PMP y Lean Six Sigma Black
+                  Belt, ha dedicado su carrera a rediseñar cómo funcionan las
+                  empresas — no simplemente añadiendo tecnología, sino mejorando
+                  cómo fluye el trabajo antes de automatizarlo.
+                </p>
+                <p>
+                  Fundó HolaTandem con una convicción sencilla: las ventajas de
+                  la IA no deberían estar reservadas a las grandes
+                  organizaciones. Hoy ayuda a pequeñas y medianas empresas a
+                  poner la IA práctica a trabajar — ahorrando tiempo, mejorando
+                  el servicio al cliente y creando nuevas oportunidades de
+                  crecimiento.
                 </p>
                 <div className="founder-points">
                   <span>
