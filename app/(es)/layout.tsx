@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope, Playfair_Display } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -28,8 +28,8 @@ const globalSchema = {
       name: "HolaTandem",
       url: "https://holatandem.com/",
       description:
-        "Done-for-you WhatsApp AI for Costa del Sol salons, clinics and estate agents.",
-      inLanguage: ["en", "es"],
+        "IA para WhatsApp hecha para ti, para salones, clínicas e inmobiliarias de la Costa del Sol.",
+      inLanguage: ["es", "en"],
       publisher: { "@id": "https://holatandem.com/#organization" },
     },
     {
@@ -37,7 +37,7 @@ const globalSchema = {
       "@id": "https://holatandem.com/#organization",
       name: "HolaTandem",
       description:
-        "Done-for-you WhatsApp AI automation for Costa del Sol salons, aesthetic clinics and estate agents. Answers leads instantly, books appointments and follows up in your customer's language.",
+        "IA para WhatsApp hecha para ti, para salones, clínicas e inmobiliarias de la Costa del Sol. Responde leads al instante, agenda citas y hace seguimiento en el idioma de tu cliente.",
       url: "https://holatandem.com/",
       image: "https://holatandem.com/assets/og_image.png",
       telephone: "+34638054941",
@@ -90,49 +90,51 @@ const globalSchema = {
 };
 
 export const metadata: Metadata = {
-  title: "HolaTandem — WhatsApp AI that answers every lead, in any language",
+  title: "HolaTandem — IA para WhatsApp que responde cada cliente, en cualquier idioma",
   description:
-    "Done-for-you WhatsApp AI for Costa del Sol salons, clinics and estate agents. Answers leads in seconds, books appointments and follows up — in your customer's language. Set up for you, end to end.",
+    "IA para WhatsApp hecha para ti, para salones, clínicas e inmobiliarias de la Costa del Sol. Responde en segundos, agenda citas y hace seguimiento — en el idioma de tu cliente. Lo configuramos todo.",
   metadataBase: new URL("https://holatandem.com"),
   alternates: {
     canonical: "/",
-    languages: { en: "/", es: "/", "x-default": "/" },
+    languages: { es: "/", en: "/en", "x-default": "/" },
   },
   icons: { icon: FAVICON },
   openGraph: {
     type: "website",
     siteName: "HolaTandem",
     url: "https://holatandem.com/",
-    title: "HolaTandem — WhatsApp AI that answers every lead, in any language",
+    title:
+      "HolaTandem — IA para WhatsApp que responde cada cliente, en cualquier idioma",
     description:
-      "Done-for-you WhatsApp AI for Costa del Sol salons, clinics and estate agents. Replies in seconds, books appointments and follows up — in your customer's language.",
+      "IA para WhatsApp hecha para ti, para salones, clínicas e inmobiliarias de la Costa del Sol. Responde en segundos, agenda citas y hace seguimiento.",
     images: [
       {
         url: "https://holatandem.com/assets/og_image.png",
         width: 1200,
         height: 630,
-        alt: "HolaTandem — WhatsApp AI for Costa del Sol salons, clinics and estate agents",
+        alt: "HolaTandem — IA para WhatsApp para salones, clínicas e inmobiliarias de la Costa del Sol",
       },
     ],
-    locale: "en_GB",
-    alternateLocale: "es_ES",
+    locale: "es_ES",
+    alternateLocale: "en_GB",
   },
   twitter: {
     card: "summary_large_image",
-    title: "HolaTandem — WhatsApp AI that answers every lead, in any language",
+    title:
+      "HolaTandem — IA para WhatsApp que responde cada cliente, en cualquier idioma",
     description:
-      "Done-for-you WhatsApp AI for Costa del Sol salons, clinics and estate agents. Replies in seconds, in your customer's language.",
+      "IA para WhatsApp hecha para ti, para salones, clínicas e inmobiliarias de la Costa del Sol.",
     images: ["https://holatandem.com/assets/og_image.png"],
   },
 };
 
-export default function RootLayout({
+export default function SpanishRootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${manrope.variable} ${playfair.variable}`}>
+    <html lang="es" className={`${manrope.variable} ${playfair.variable}`}>
       <head>
         <script
           type="application/ld+json"

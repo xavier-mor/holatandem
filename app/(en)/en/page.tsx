@@ -2,7 +2,7 @@ import { HeaderControls } from "@/app/components/HeaderControls";
 import { PageEffects } from "@/app/components/PageEffects";
 import Image from "next/image";
 
-const WA_DEFAULT =
+const WA_EN =
   "https://wa.me/34638054941?text=Hi%21%20I%27d%20like%20to%20see%20HolaTandem%20in%20action";
 
 const softwareSchema = {
@@ -124,8 +124,7 @@ const faqSchema = {
   ],
 };
 
-
-export default function Home() {
+export default function HomeEn() {
   return (
     <>
       <script
@@ -142,7 +141,7 @@ export default function Home() {
       />
       <header>
         <div className="wrap nav">
-          <a className="brand" href="/" aria-label="HolaTandem home">
+          <a className="brand" href="/en" aria-label="HolaTandem home">
             <svg
               className="logo-mark"
               viewBox="64 74 432 404"
@@ -188,20 +187,19 @@ export default function Home() {
             </span>
           </a>
           <nav className="nav-links" id="navlinks">
-            <a className="link" href="#how" data-en="How it works" data-es="Cómo funciona">
-              How it works
-            </a>
-            <a className="link" href="#why" data-en="Why us" data-es="Por qué nosotros">
-              Why us
-            </a>
-            <a className="link" href="#pricing" data-en="Pricing" data-es="Precios">
-              Pricing
-            </a>
-            <a className="btn btn-navy" href="https://calendly.com/elena-holatandem" target="_blank" rel="noopener" data-en="Book a free demo" data-es="Pide una demo">
+            <a className="link" href="#how">How it works</a>
+            <a className="link" href="#why">Why us</a>
+            <a className="link" href="#pricing">Pricing</a>
+            <a
+              className="btn btn-navy"
+              href="https://calendly.com/elena-holatandem"
+              target="_blank"
+              rel="noopener"
+            >
               Book a free demo
             </a>
           </nav>
-          <HeaderControls />
+          <HeaderControls locale="en" />
         </div>
       </header>
 
@@ -210,29 +208,18 @@ export default function Home() {
           <div className="wrap hero-grid">
             <div>
               <h1>
-                <span data-en="Never miss a " data-es="No pierdas otro cliente de ">
-                  Never miss a{" "}
-                </span>
-                <span className="accent" data-en="WhatsApp" data-es="WhatsApp">
-                  WhatsApp
-                </span>
-                <span data-en=" lead again." data-es=".">
-                  {" "}
-                  lead again.
-                </span>
+                <span>Never miss a </span>
+                <span className="accent">WhatsApp</span>
+                <span> lead again.</span>
               </h1>
-              <p
-                className="sub"
-                data-en="AI that replies, books appointments and follows up — while you focus on running your business. We set it all up for you."
-                data-es="IA que responde, agenda citas y hace seguimiento — mientras tú te centras en tu negocio. Lo configuramos todo por ti."
-              >
+              <p className="sub">
                 AI that replies, books appointments and follows up — while you
                 focus on running your business. We set it all up for you.
               </p>
               <div className="hero-cta">
                 <a
                   className="btn btn-wa"
-                  href={WA_DEFAULT}
+                  href={WA_EN}
                   target="_blank"
                   rel="noopener"
                 >
@@ -245,19 +232,18 @@ export default function Home() {
                   >
                     <path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.821 11.821 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.043zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.15-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
                   </svg>
-                  <span data-en="Try the live demo" data-es="Prueba la demo">
-                    Try the live demo
-                  </span>
+                  <span>Try the live demo</span>
                 </a>
-                <a className="btn btn-ghost" href="https://calendly.com/elena-holatandem" target="_blank" rel="noopener" data-en="Book a free demo" data-es="Pide una demo">
+                <a
+                  className="btn btn-ghost"
+                  href="https://calendly.com/elena-holatandem"
+                  target="_blank"
+                  rel="noopener"
+                >
                   Book a free demo
                 </a>
               </div>
-              <p
-                className="hero-note"
-                data-en="Message our own assistant on WhatsApp — it replies <b>instantly, in your customer's language</b>."
-                data-es="Escribe a nuestro propio asistente en WhatsApp — responde <b>al instante, en el idioma de tu cliente</b>."
-              >
+              <p className="hero-note">
                 Message our own assistant on WhatsApp — it replies{" "}
                 <b>instantly, in your customer&apos;s language</b>.
               </p>
@@ -320,44 +306,20 @@ export default function Home() {
                   </div>
                   <div>
                     <div className="nm">HolaTandem</div>
-                    <div
-                      className="st"
-                      data-en="online · replies instantly"
-                      data-es="en línea · responde al instante"
-                    >
-                      online · replies instantly
-                    </div>
+                    <div className="st">online · replies instantly</div>
                   </div>
                 </div>
                 <div className="chat-body" id="chatBody">
-                  <div
-                    className="bub in"
-                    data-en="Hi! Do you have any appointments this Saturday for highlights? 💇‍♀️"
-                    data-es="¡Hola! ¿Tenéis hueco el sábado para mechas? 💇‍♀️"
-                  >
+                  <div className="bub in">
                     Hi! Do you have any appointments this Saturday for
                     highlights? 💇‍♀️
                   </div>
-                  <div
-                    className="bub out"
-                    data-en="Hi Marta! Yes — Saturday we have 11:00 or 16:30 free. Which suits you best? <span class='tick'>✓✓</span>"
-                    data-es="¡Hola Marta! Sí — el sábado tenemos libre a las 11:00 o 16:30. ¿Cuál te viene mejor? <span class='tick'>✓✓</span>"
-                  >
+                  <div className="bub out">
                     Hi Marta! Yes — Saturday we have 11:00 or 16:30 free. Which
                     suits you best? <span className="tick">✓✓</span>
                   </div>
-                  <div
-                    className="bub in"
-                    data-en="11:00 please 🙌"
-                    data-es="A las 11:00 por favor 🙌"
-                  >
-                    11:00 please 🙌
-                  </div>
-                  <div
-                    className="bub out"
-                    data-en="Booked you in for Sat 11:00 ✨ I'll send a reminder the day before. See you then! <span class='tick'>✓✓</span>"
-                    data-es="Reservado para el sábado a las 11:00 ✨ Te enviaré un recordatorio el día antes. ¡Hasta entonces! <span class='tick'>✓✓</span>"
-                  >
+                  <div className="bub in">11:00 please 🙌</div>
+                  <div className="bub out">
                     Booked you in for Sat 11:00 ✨ I&apos;ll send a reminder the
                     day before. See you then! <span className="tick">✓✓</span>
                   </div>
@@ -387,9 +349,7 @@ export default function Home() {
                   </g>
                 </svg>
               </div>
-              <div className="fc-label" data-en="Replies instantly" data-es="Responde al instante">
-                Replies instantly
-              </div>
+              <div className="fc-label">Replies instantly</div>
             </div>
             <div className="feat-chip">
               <div className="fc-ico">
@@ -410,9 +370,7 @@ export default function Home() {
                   </g>
                 </svg>
               </div>
-              <div className="fc-label" data-en="Books appointments" data-es="Agenda citas">
-                Books appointments
-              </div>
+              <div className="fc-label">Books appointments</div>
             </div>
             <div className="feat-chip">
               <div className="fc-ico">
@@ -425,13 +383,7 @@ export default function Home() {
                   </g>
                 </svg>
               </div>
-              <div
-                className="fc-label"
-                data-en="Speaks your customer's language"
-                data-es="Habla el idioma de tu cliente"
-              >
-                Speaks your customer&apos;s language
-              </div>
+              <div className="fc-label">Speaks your customer&apos;s language</div>
             </div>
             <div className="feat-chip">
               <div className="fc-ico">
@@ -444,34 +396,16 @@ export default function Home() {
                   </g>
                 </svg>
               </div>
-              <div
-                className="fc-label"
-                data-en="Hands over to humans when needed"
-                data-es="Pasa a una persona cuando hace falta"
-              >
-                Hands over to humans when needed
-              </div>
+              <div className="fc-label">Hands over to humans when needed</div>
             </div>
           </div>
         </section>
 
         <section className="dark" id="problem">
           <div className="wrap center">
-            <p className="kicker" data-en="The hidden leak" data-es="La fuga invisible">
-              The hidden leak
-            </p>
-            <h2
-              className="sec"
-              data-en="Every slow reply is a booking you lost"
-              data-es="Cada respuesta tardía es una reserva perdida"
-            >
-              Every slow reply is a booking you lost
-            </h2>
-            <p
-              className="lead"
-              data-en="Most customers message on WhatsApp now — and the first business to reply wins. When you're with a client, on holiday, or it's 9pm, those messages wait. And waiting customers go elsewhere."
-              data-es="Hoy casi todos escriben por WhatsApp — y gana el primero en responder. Cuando estás con un cliente, de vacaciones o son las 9 de la noche, esos mensajes esperan. Y el cliente que espera, se va a otro sitio."
-            >
+            <p className="kicker">The hidden leak</p>
+            <h2 className="sec">Every slow reply is a booking you lost</h2>
+            <p className="lead">
               Most customers message on WhatsApp now — and the first business to
               reply wins. When you&apos;re with a client, on holiday, or
               it&apos;s 9pm, those messages wait. And waiting customers go
@@ -483,13 +417,8 @@ export default function Home() {
               <div className="row">
                 <span className="x">✕</span>
                 <div>
-                  <b data-en="Leads answered too late" data-es="Clientes contestados tarde">
-                    Leads answered too late
-                  </b>
-                  <p
-                    data-en="Replies come hours later, after they've already booked with a competitor."
-                    data-es="Las respuestas llegan horas después, cuando ya reservaron con la competencia."
-                  >
+                  <b>Leads answered too late</b>
+                  <p>
                     Replies come hours later, after they&apos;ve already booked
                     with a competitor.
                   </p>
@@ -498,13 +427,8 @@ export default function Home() {
               <div className="row">
                 <span className="x">✕</span>
                 <div>
-                  <b data-en="Drop-off before booking" data-es="Se pierden antes de reservar">
-                    Drop-off before booking
-                  </b>
-                  <p
-                    data-en="People ask one question, get no answer, and quietly disappear."
-                    data-es="Preguntan algo, no reciben respuesta y desaparecen sin más."
-                  >
+                  <b>Drop-off before booking</b>
+                  <p>
                     People ask one question, get no answer, and quietly
                     disappear.
                   </p>
@@ -513,13 +437,8 @@ export default function Home() {
               <div className="row">
                 <span className="x">✕</span>
                 <div>
-                  <b data-en="Manual follow-ups eat your day" data-es="El seguimiento manual te roba el día">
-                    Manual follow-ups eat your day
-                  </b>
-                  <p
-                    data-en="Chasing, reminding and rebooking by hand — message by message."
-                    data-es="Perseguir, recordar y volver a citar a mano — mensaje a mensaje."
-                  >
+                  <b>Manual follow-ups eat your day</b>
+                  <p>
                     Chasing, reminding and rebooking by hand — message by
                     message.
                   </p>
@@ -528,13 +447,8 @@ export default function Home() {
               <div className="row">
                 <span className="x">✕</span>
                 <div>
-                  <b data-en="No-shows you never saw coming" data-es="Ausencias que no viste venir">
-                    No-shows you never saw coming
-                  </b>
-                  <p
-                    data-en="Without timely reminders, empty chairs and lost revenue pile up."
-                    data-es="Sin recordatorios a tiempo, se acumulan los huecos vacíos y los ingresos perdidos."
-                  >
+                  <b>No-shows you never saw coming</b>
+                  <p>
                     Without timely reminders, empty chairs and lost revenue pile
                     up.
                   </p>
@@ -546,21 +460,9 @@ export default function Home() {
 
         <section id="how">
           <div className="wrap center">
-            <p className="kicker" data-en="How it works" data-es="Cómo funciona">
-              How it works
-            </p>
-            <h2
-              className="sec"
-              data-en="Live on your WhatsApp in days, not months"
-              data-es="En tu WhatsApp en días, no en meses"
-            >
-              Live on your WhatsApp in days, not months
-            </h2>
-            <p
-              className="lead"
-              data-en="No app to learn, no new number to share. It works on the WhatsApp your customers already message."
-              data-es="Sin app que aprender, sin número nuevo que repartir. Funciona en el WhatsApp al que tus clientes ya escriben."
-            >
+            <p className="kicker">How it works</p>
+            <h2 className="sec">Live on your WhatsApp in days, not months</h2>
+            <p className="lead">
               No app to learn, no new number to share. It works on the WhatsApp
               your customers already message.
             </p>
@@ -569,39 +471,24 @@ export default function Home() {
             <div className="steps">
               <div className="step">
                 <div className="n"></div>
-                <h3 data-en="We learn your business" data-es="Conocemos tu negocio">
-                  We learn your business
-                </h3>
-                <p
-                  data-en="A short call about your services, prices, hours and the questions you get most. We handle the whole setup."
-                  data-es="Una llamada corta sobre tus servicios, precios, horarios y las preguntas más frecuentes. Nos encargamos de toda la configuración."
-                >
+                <h3>We learn your business</h3>
+                <p>
                   A short call about your services, prices, hours and the
                   questions you get most. We handle the whole setup.
                 </p>
               </div>
               <div className="step">
                 <div className="n"></div>
-                <h3 data-en="We build & connect it" data-es="Lo creamos y conectamos">
-                  We build &amp; connect it
-                </h3>
-                <p
-                  data-en="Your assistant is trained on your details and connected to your WhatsApp — done for you, end to end."
-                  data-es="Tu asistente se entrena con tus datos y se conecta a tu WhatsApp — todo hecho por ti, de principio a fin."
-                >
+                <h3>We build &amp; connect it</h3>
+                <p>
                   Your assistant is trained on your details and connected to
                   your WhatsApp — done for you, end to end.
                 </p>
               </div>
               <div className="step">
                 <div className="n"></div>
-                <h3 data-en="It answers & books 24/7" data-es="Responde y agenda 24/7">
-                  It answers &amp; books 24/7
-                </h3>
-                <p
-                  data-en="Customers get instant answers and book themselves. You step in only when you want to — we keep it running."
-                  data-es="Los clientes reciben respuestas al instante y reservan solos. Tú intervienes solo cuando quieres — nosotros lo mantenemos."
-                >
+                <h3>It answers &amp; books 24/7</h3>
+                <p>
                   Customers get instant answers and book themselves. You step in
                   only when you want to — we keep it running.
                 </p>
@@ -612,21 +499,9 @@ export default function Home() {
 
         <section className="dark" id="why">
           <div className="wrap center">
-            <p className="kicker" data-en="Why HolaTandem" data-es="Por qué HolaTandem">
-              Why HolaTandem
-            </p>
-            <h2
-              className="sec"
-              data-en="Not another chatbot. A done-for-you assistant."
-              data-es="No es otro chatbot. Es un asistente hecho para ti."
-            >
-              Not another chatbot. A done-for-you assistant.
-            </h2>
-            <p
-              className="lead"
-              data-en="Generic bots hand you a dashboard and wish you luck. We build, run and tune yours — tailored to the Costa del Sol and your trade."
-              data-es="Los bots genéricos te dan un panel y te desean suerte. Nosotros creamos, gestionamos y afinamos el tuyo — adaptado a la Costa del Sol y a tu sector."
-            >
+            <p className="kicker">Why HolaTandem</p>
+            <h2 className="sec">Not another chatbot. A done-for-you assistant.</h2>
+            <p className="lead">
               Generic bots hand you a dashboard and wish you luck. We build, run
               and tune yours — tailored to the Costa del Sol and your trade.
             </p>
@@ -634,113 +509,53 @@ export default function Home() {
           <div className="wrap">
             <div className="compare">
               <div className="crow chead">
-                <div data-en="Feature" data-es="Característica">
-                  Feature
-                </div>
+                <div>Feature</div>
                 <div className="ht">HolaTandem</div>
-                <div data-en="Generic chatbot" data-es="Chatbot genérico">
-                  Generic chatbot
-                </div>
+                <div>Generic chatbot</div>
               </div>
               <div className="crow">
-                <div
-                  className="feat"
-                  data-en="Speaks your customer's language"
-                  data-es="Habla el idioma de tu cliente"
-                >
-                  Speaks your customer&apos;s language
-                </div>
+                <div className="feat">Speaks your customer&apos;s language</div>
                 <div className="col-ht">
-                  <span className="yes" data-en="✓ Automatically" data-es="✓ Automáticamente">
-                    ✓ Automatically
-                  </span>
+                  <span className="yes">✓ Automatically</span>
                 </div>
-                <div className="no" data-en="Usually one only" data-es="Normalmente solo uno">
-                  Usually one only
-                </div>
+                <div className="no">Usually one only</div>
               </div>
               <div className="crow">
-                <div
-                  className="feat"
-                  data-en="Set up & run for you"
-                  data-es="Configurado y gestionado por ti"
-                >
-                  Set up &amp; run for you
-                </div>
+                <div className="feat">Set up &amp; run for you</div>
                 <div className="col-ht">
-                  <span className="yes" data-en="✓ Fully white-glove" data-es="✓ Totalmente gestionado">
-                    ✓ Fully white-glove
-                  </span>
+                  <span className="yes">✓ Fully white-glove</span>
                 </div>
-                <div className="no" data-en="DIY dashboard" data-es="Panel hazlo-tú-mismo">
-                  DIY dashboard
-                </div>
+                <div className="no">DIY dashboard</div>
               </div>
               <div className="crow">
-                <div
-                  className="feat"
-                  data-en="Local Costa del Sol support"
-                  data-es="Soporte local en la Costa del Sol"
-                >
-                  Local Costa del Sol support
-                </div>
+                <div className="feat">Local Costa del Sol support</div>
                 <div className="col-ht">
-                  <span className="yes" data-en="✓ Based in Fuengirola" data-es="✓ En Fuengirola">
-                    ✓ Based in Fuengirola
-                  </span>
+                  <span className="yes">✓ Based in Fuengirola</span>
                 </div>
-                <div className="no" data-en="Faceless / overseas" data-es="Sin cara / en el extranjero">
-                  Faceless / overseas
-                </div>
+                <div className="no">Faceless / overseas</div>
               </div>
               <div className="crow">
-                <div
-                  className="feat"
-                  data-en="Tuned for salons, clinics & estate agents"
-                  data-es="Adaptado a salones, clínicas e inmobiliarias"
-                >
+                <div className="feat">
                   Tuned for salons, clinics &amp; estate agents
                 </div>
                 <div className="col-ht">
-                  <span className="yes" data-en="✓ Industry-specific" data-es="✓ Específico por sector">
-                    ✓ Industry-specific
-                  </span>
+                  <span className="yes">✓ Industry-specific</span>
                 </div>
-                <div className="no" data-en="One-size-fits-all" data-es="Igual para todos">
-                  One-size-fits-all
-                </div>
+                <div className="no">One-size-fits-all</div>
               </div>
               <div className="crow">
-                <div
-                  className="feat"
-                  data-en="Works on your existing number"
-                  data-es="Funciona en tu número actual"
-                >
-                  Works on your existing number
-                </div>
+                <div className="feat">Works on your existing number</div>
                 <div className="col-ht">
-                  <span className="yes" data-en="✓ Keep your own number" data-es="✓ Mantén tu número">✓ Keep your own number</span>
+                  <span className="yes">✓ Keep your own number</span>
                 </div>
-                <div className="no" data-en="Often a new number" data-es="A menudo un número nuevo">
-                  Often a new number
-                </div>
+                <div className="no">Often a new number</div>
               </div>
               <div className="crow">
-                <div
-                  className="feat"
-                  data-en="Hands over to a real person"
-                  data-es="Pasa a una persona real"
-                >
-                  Hands over to a real person
-                </div>
+                <div className="feat">Hands over to a real person</div>
                 <div className="col-ht">
-                  <span className="yes" data-en="✓ Anytime" data-es="✓ Cuando quieras">
-                    ✓ Anytime
-                  </span>
+                  <span className="yes">✓ Anytime</span>
                 </div>
-                <div className="no" data-en="Often dead-ends" data-es="A menudo sin salida">
-                  Often dead-ends
-                </div>
+                <div className="no">Often dead-ends</div>
               </div>
             </div>
           </div>
@@ -748,21 +563,9 @@ export default function Home() {
 
         <section id="who">
           <div className="wrap center">
-            <p className="kicker" data-en="Built for" data-es="Pensado para">
-              Built for
-            </p>
-            <h2
-              className="sec"
-              data-en="Made for Costa del Sol businesses"
-              data-es="Hecho para negocios de la Costa del Sol"
-            >
-              Made for Costa del Sol businesses
-            </h2>
-            <p
-              className="lead"
-              data-en="If customers book you over WhatsApp, your assistant pays for itself in saved bookings."
-              data-es="Si tus clientes reservan por WhatsApp, tu asistente se paga solo con las reservas que recuperas."
-            >
+            <p className="kicker">Built for</p>
+            <h2 className="sec">Made for Costa del Sol businesses</h2>
+            <p className="lead">
               If customers book you over WhatsApp, your assistant pays for
               itself in saved bookings.
             </p>
@@ -779,13 +582,8 @@ export default function Home() {
                     <line x1="8.12" y1="8.12" x2="12" y2="12" />
                   </svg>
                 </div>
-                <h3 data-en="Hair & beauty salons" data-es="Salones de belleza">
-                  Hair &amp; beauty salons
-                </h3>
-                <p
-                  data-en="Fill the diary, cut no-shows with smart reminders, rebook regulars automatically."
-                  data-es="Llena la agenda, reduce ausencias con recordatorios y vuelve a citar a tus clientes automáticamente."
-                >
+                <h3>Hair &amp; beauty salons</h3>
+                <p>
                   Fill the diary, cut no-shows with smart reminders, rebook
                   regulars automatically.
                 </p>
@@ -797,13 +595,8 @@ export default function Home() {
                     <path d="M18.5 14l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z" />
                   </svg>
                 </div>
-                <h3 data-en="Aesthetic clinics" data-es="Clínicas estéticas">
-                  Aesthetic clinics
-                </h3>
-                <p
-                  data-en="Answer treatment questions, qualify enquiries and book consultations around the clock."
-                  data-es="Responde dudas sobre tratamientos, califica consultas y agenda valoraciones a cualquier hora."
-                >
+                <h3>Aesthetic clinics</h3>
+                <p>
                   Answer treatment questions, qualify enquiries and book
                   consultations around the clock.
                 </p>
@@ -816,13 +609,8 @@ export default function Home() {
                     <path d="M9.5 21v-6h5v6" />
                   </svg>
                 </div>
-                <h3 data-en="Estate agents" data-es="Inmobiliarias">
-                  Estate agents
-                </h3>
-                <p
-                  data-en="Qualify buyers and renters instantly, capture details and pass on only the serious leads."
-                  data-es="Califica compradores e inquilinos al instante, recoge sus datos y pásate solo los contactos serios."
-                >
+                <h3>Estate agents</h3>
+                <p>
                   Qualify buyers and renters instantly, capture details and pass
                   on only the serious leads.
                 </p>
@@ -833,16 +621,8 @@ export default function Home() {
 
         <section id="founder">
           <div className="wrap center">
-            <p className="kicker" data-en="Who's behind it" data-es="Quién hay detrás">
-              Who&apos;s behind it
-            </p>
-            <h2
-              className="sec"
-              data-en="A real person, not a faceless bot vendor"
-              data-es="Una persona real, no un proveedor de bots sin cara"
-            >
-              A real person, not a faceless bot vendor
-            </h2>
+            <p className="kicker">Who&apos;s behind it</p>
+            <h2 className="sec">A real person, not a faceless bot vendor</h2>
           </div>
           <div className="wrap">
             <div className="founder-card">
@@ -857,17 +637,8 @@ export default function Home() {
               </div>
               <div>
                 <h3>Elena Ignat</h3>
-                <div
-                  className="role"
-                  data-en="Founder · Costa del Sol"
-                  data-es="Fundadora · Costa del Sol"
-                >
-                  Founder · Costa del Sol
-                </div>
-                <p
-                  data-en="Hi, I'm Elena. I build and run your WhatsApp assistant myself, right here on the Costa del Sol — no call centre, no faceless agency. I'll set it up for your business in person, and I'm one message away whenever you need me."
-                  data-es="Hola, soy Elena. Creo y gestiono tu asistente de WhatsApp personalmente, aquí en la Costa del Sol — sin call center, sin agencia anónima. Lo configuro para tu negocio en persona y estoy a un mensaje de distancia cuando me necesites."
-                >
+                <div className="role">Founder · Costa del Sol</div>
+                <p>
                   Hi, I&apos;m Elena. I build and run your WhatsApp assistant
                   myself, right here on the Costa del Sol — no call centre, no
                   faceless agency. I&apos;ll set it up for your business in
@@ -875,22 +646,13 @@ export default function Home() {
                 </p>
                 <div className="founder-points">
                   <span>
-                    <span className="ck">✓</span>{" "}
-                    <span data-en="Local, in Fuengirola" data-es="Local, en Fuengirola">
-                      Local, in Fuengirola
-                    </span>
+                    <span className="ck">✓</span> Local, in Fuengirola
                   </span>
                   <span>
-                    <span className="ck">✓</span>{" "}
-                    <span data-en="Done for you, end to end" data-es="Hecho por ti, de principio a fin">
-                      Done for you, end to end
-                    </span>
+                    <span className="ck">✓</span> Done for you, end to end
                   </span>
                   <span>
-                    <span className="ck">✓</span>{" "}
-                    <span data-en="You deal with me directly" data-es="Tratas conmigo directamente">
-                      You deal with me directly
-                    </span>
+                    <span className="ck">✓</span> You deal with me directly
                   </span>
                 </div>
               </div>
@@ -900,21 +662,9 @@ export default function Home() {
 
         <section id="pricing" style={{ background: "#fbf9f6" }}>
           <div className="wrap center">
-            <p className="kicker" data-en="Plans" data-es="Planes">
-              Plans
-            </p>
-            <h2
-              className="sec"
-              data-en="Your plan and price, on a free demo"
-              data-es="Tu plan y precio, en una demo gratuita"
-            >
-              Your plan and price, on a free demo
-            </h2>
-            <p
-              className="lead"
-              data-en="Tell us about your business on a free demo and we'll recommend the plan and price that fit."
-              data-es="Cuéntanos sobre tu negocio en una demo gratuita y te recomendamos el plan y el precio que encajan."
-            >
+            <p className="kicker">Plans</p>
+            <h2 className="sec">Your plan and price, on a free demo</h2>
+            <p className="lead">
               Tell us about your business on a free demo and we&apos;ll
               recommend the plan and price that fit.
             </p>
@@ -924,17 +674,11 @@ export default function Home() {
                 href="https://calendly.com/elena-holatandem"
                 target="_blank"
                 rel="noopener"
-                data-en="Book a free demo"
-                data-es="Pide una demo"
               >
                 Book a free demo
               </a>
             </div>
-            <p
-              className="compare-note"
-              data-en="No long contract, and you approve everything before it goes live."
-              data-es="Sin contratos largos, y tú apruebas todo antes de activarlo."
-            >
+            <p className="compare-note">
               No long contract, and you approve everything before it goes live.
             </p>
           </div>
@@ -942,124 +686,60 @@ export default function Home() {
 
         <section id="faq" style={{ background: "#fbf9f6" }}>
           <div className="wrap center">
-            <p className="kicker" data-en="FAQ" data-es="Preguntas">
-              FAQ
-            </p>
-            <h2
-              className="sec"
-              data-en="Questions, answered"
-              data-es="Preguntas, respondidas"
-            >
-              Questions, answered
-            </h2>
+            <p className="kicker">FAQ</p>
+            <h2 className="sec">Questions, answered</h2>
           </div>
           <div className="wrap">
             <div className="faq-list">
               <details>
-                <summary data-en="Is this just a chatbot?" data-es="¿Es solo un chatbot?">
-                  Is this just a chatbot?
-                </summary>
-                <div
-                  className="faq-a"
-                  data-en="No. Unlike a basic chatbot, it understands what each customer is asking and replies naturally in their language — and hands the conversation to you whenever a human touch is needed."
-                  data-es="No. A diferencia de un chatbot básico, entiende lo que pregunta cada cliente y responde con naturalidad en su idioma — y te pasa la conversación cuando hace falta una persona."
-                >
+                <summary>Is this just a chatbot?</summary>
+                <div className="faq-a">
                   No. Unlike a basic chatbot, it understands what each customer
                   is asking and replies naturally in their language — and hands
                   the conversation to you whenever a human touch is needed.
                 </div>
               </details>
               <details>
-                <summary
-                  data-en="Does it use my existing WhatsApp number?"
-                  data-es="¿Usa mi número de WhatsApp actual?"
-                >
-                  Does it use my existing WhatsApp number?
-                </summary>
-                <div
-                  className="faq-a"
-                  data-en="Yes — it works on your dedicated business WhatsApp number, the one your customers already message. No new number to learn or share."
-                  data-es="Sí — funciona en tu número de WhatsApp Business, el que tus clientes ya usan. Sin número nuevo que aprender ni repartir."
-                >
-                  Yes — it works on your dedicated business WhatsApp number,
-                  the one your customers already message. No new number to
-                  learn or share.
+                <summary>Does it use my existing WhatsApp number?</summary>
+                <div className="faq-a">
+                  Yes — it works on your dedicated business WhatsApp number, the
+                  one your customers already message. No new number to learn or
+                  share.
                 </div>
               </details>
               <details>
-                <summary
-                  data-en="What languages does it speak?"
-                  data-es="¿Qué idiomas habla?"
-                >
-                  What languages does it speak?
-                </summary>
-                <div
-                  className="faq-a"
-                  data-en="It replies in your customer's language automatically — ideal for the Costa del Sol's mix of locals and international visitors."
-                  data-es="Responde automáticamente en el idioma de tu cliente — ideal para la mezcla de locales e internacionales de la Costa del Sol."
-                >
+                <summary>What languages does it speak?</summary>
+                <div className="faq-a">
                   It replies in your customer&apos;s language automatically —
                   ideal for the Costa del Sol&apos;s mix of locals and
                   international visitors.
                 </div>
               </details>
               <details>
-                <summary data-en="Is my data safe?" data-es="¿Están seguros mis datos?">
-                  Is my data safe?
-                </summary>
-                <div
-                  className="faq-a"
-                  data-en="Yes. We use GDPR-compliant, EU-based tools and never sell your data. See our Privacy Policy for the details."
-                  data-es="Sí. Usamos herramientas conformes al RGPD y alojadas en la UE, y nunca vendemos tus datos. Consulta nuestra Política de Privacidad para más detalles."
-                >
-                  Yes. We use GDPR-compliant, EU-based tools and never sell
-                  your data. See our Privacy Policy for the details.
+                <summary>Is my data safe?</summary>
+                <div className="faq-a">
+                  Yes. We use GDPR-compliant, EU-based tools and never sell your
+                  data. See our{" "}
+                  <a href="/privacy">Privacy Policy</a> for the details.
                 </div>
               </details>
               <details>
-                <summary
-                  data-en="How long does setup take?"
-                  data-es="¿Cuánto tarda la configuración?"
-                >
-                  How long does setup take?
-                </summary>
-                <div
-                  className="faq-a"
-                  data-en="Days, not months. We handle the whole setup for you and you approve everything before it goes live."
-                  data-es="Días, no meses. Nos encargamos de toda la configuración y tú apruebas todo antes de activarlo."
-                >
+                <summary>How long does setup take?</summary>
+                <div className="faq-a">
                   Days, not months. We handle the whole setup for you and you
                   approve everything before it goes live.
                 </div>
               </details>
               <details>
-                <summary
-                  data-en="Is there a long contract?"
-                  data-es="¿Hay un contrato largo?"
-                >
-                  Is there a long contract?
-                </summary>
-                <div
-                  className="faq-a"
-                  data-en="No long lock-in — you can cancel anytime. We'd rather keep you because it works."
-                  data-es="Sin permanencia larga — puedes cancelar cuando quieras. Preferimos que te quedes porque funciona."
-                >
+                <summary>Is there a long contract?</summary>
+                <div className="faq-a">
                   No long lock-in — you can cancel anytime. We&apos;d rather
                   keep you because it works.
                 </div>
               </details>
               <details>
-                <summary
-                  data-en="Will it replace my booking software?"
-                  data-es="¿Sustituye a mi software de reservas?"
-                >
-                  Will it replace my booking software?
-                </summary>
-                <div
-                  className="faq-a"
-                  data-en="No — it works alongside the tools you already use. You don't have to change how you run your business."
-                  data-es="No — funciona junto a las herramientas que ya usas. No tienes que cambiar cómo llevas tu negocio."
-                >
+                <summary>Will it replace my booking software?</summary>
+                <div className="faq-a">
                   No — it works alongside the tools you already use. You
                   don&apos;t have to change how you run your business.
                 </div>
@@ -1071,20 +751,22 @@ export default function Home() {
         <section id="demo">
           <div className="wrap">
             <div className="cta-band">
-              <h2 data-en="Ask for a live demo" data-es="Pide una demo en vivo">
-                Ask for a live demo
-              </h2>
-              <p
-                data-en="See how HolaTandem works for a business like yours — or message our live assistant on WhatsApp right now."
-                data-es="Descubre cómo funciona HolaTandem para un negocio como el tuyo — o escribe a nuestro asistente en WhatsApp ahora mismo."
-              >
+              <h2>Ask for a live demo</h2>
+              <p>
                 See how HolaTandem works for a business like yours — or message
                 our live assistant on WhatsApp right now.
               </p>
-              <div style={{ display: "flex", gap: "14px", justifyContent: "center", flexWrap: "wrap" }}>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "14px",
+                  justifyContent: "center",
+                  flexWrap: "wrap",
+                }}
+              >
                 <a
                   className="btn btn-wa-white"
-                  href={WA_DEFAULT}
+                  href={WA_EN}
                   target="_blank"
                   rel="noopener"
                 >
@@ -1097,17 +779,13 @@ export default function Home() {
                   >
                     <path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.821 11.821 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.043zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.15-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
                   </svg>
-                  <span data-en="Try the live demo" data-es="Prueba la demo">
-                    Try the live demo
-                  </span>
+                  <span>Try the live demo</span>
                 </a>
                 <a
                   className="btn btn-navy"
                   href="https://calendly.com/elena-holatandem"
                   target="_blank"
                   rel="noopener"
-                  data-en="Book a free demo"
-                  data-es="Pide una demo"
                 >
                   Book a free demo
                 </a>
@@ -1166,78 +844,37 @@ export default function Home() {
                     <span className="h">Hola</span>
                     <span className="t">Tandem</span>
                   </span>
-                  <span
-                    className="ft"
-                    data-en="Your WhatsApp Assistant"
-                    data-es="Tu Asistente de WhatsApp"
-                  >
-                    Your WhatsApp Assistant
-                  </span>
+                  <span className="ft">Your WhatsApp Assistant</span>
                 </span>
               </span>
-              <p
-                className="tag"
-                data-en="Done-for-you WhatsApp AI for Costa del Sol salons, clinics and estate agents."
-                data-es="IA por WhatsApp hecha para ti, para salones, clínicas e inmobiliarias de la Costa del Sol."
-              >
+              <p className="tag">
                 Done-for-you WhatsApp AI for Costa del Sol salons, clinics and
                 estate agents.
               </p>
             </div>
             <div className="fcol">
-              <h4 data-en="Explore" data-es="Explora">
-                Explore
-              </h4>
-              <a href="#how" data-en="How it works" data-es="Cómo funciona">
-                How it works
-              </a>
-              <a href="#why" data-en="Why us" data-es="Por qué nosotros">
-                Why us
-              </a>
-              <a href="#pricing" data-en="Pricing" data-es="Precios">
-                Pricing
-              </a>
+              <h4>Explore</h4>
+              <a href="#how">How it works</a>
+              <a href="#why">Why us</a>
+              <a href="#pricing">Pricing</a>
             </div>
             <div className="fcol">
-              <h4 data-en="Get in touch" data-es="Contacto">
-                Get in touch
-              </h4>
-              <a
-                href={WA_DEFAULT}
-                target="_blank"
-                rel="noopener"
-                data-en="WhatsApp us"
-                data-es="Escríbenos por WhatsApp"
-              >
+              <h4>Get in touch</h4>
+              <a href={WA_EN} target="_blank" rel="noopener">
                 WhatsApp us
               </a>
               <a href="mailto:info@holatandem.com">info@holatandem.com</a>
-              <a data-en="Fuengirola, Málaga · Spain" data-es="Fuengirola, Málaga · España">
-                Fuengirola, Málaga · Spain
-              </a>
+              <a>Fuengirola, Málaga · Spain</a>
             </div>
             <div className="fcol">
-              <h4 data-en="Legal" data-es="Legal">
-                Legal
-              </h4>
-              <a href="/privacy" data-en="Privacy Policy" data-es="Política de privacidad">
-                Privacy Policy
-              </a>
-              <a href="/aviso-legal" data-en="Legal Notice" data-es="Aviso Legal">
-                Legal Notice
-              </a>
+              <h4>Legal</h4>
+              <a href="/privacy">Privacy Policy</a>
+              <a href="/aviso-legal">Legal Notice</a>
             </div>
           </div>
           <div className="fbot">
-            <span>
-              © {new Date().getFullYear()} HolaTandem · holatandem.com
-            </span>
-            <span
-              data-en="Built on WhatsApp Business Platform"
-              data-es="Sobre la plataforma WhatsApp Business"
-            >
-              Built on WhatsApp Business Platform
-            </span>
+            <span>© {new Date().getFullYear()} HolaTandem · holatandem.com</span>
+            <span>Built on WhatsApp Business Platform</span>
           </div>
         </div>
       </footer>

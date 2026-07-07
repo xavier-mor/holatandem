@@ -4,9 +4,6 @@ import { useEffect } from "react";
 
 export function PageEffects() {
   useEffect(() => {
-    const yr = document.getElementById("yr");
-    if (yr) yr.textContent = String(new Date().getFullYear());
-
     const navlinks = document.getElementById("navlinks");
     const navClick = () => navlinks?.classList.remove("open");
     const navAnchors = document.querySelectorAll("#navlinks a");
