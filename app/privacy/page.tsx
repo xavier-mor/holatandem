@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy — HolaTandem",
   description:
     "How HolaTandem collects, uses and protects your personal data when you contact us through WhatsApp.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPolicy() {

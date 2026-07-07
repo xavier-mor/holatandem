@@ -4,21 +4,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: "https://holatandem.com/",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
+      lastModified: "2026-06-26",
     },
     {
       url: "https://holatandem.com/privacy",
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.3,
+      lastModified: "2026-06-02",
     },
     {
       url: "https://holatandem.com/aviso-legal",
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.3,
+      lastModified: "2026-06-08",
     },
   ];
 }

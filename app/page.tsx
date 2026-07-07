@@ -1,30 +1,127 @@
 import { HeaderControls } from "@/app/components/HeaderControls";
 import { PageEffects } from "@/app/components/PageEffects";
+import Image from "next/image";
 
 const WA_DEFAULT =
   "https://wa.me/34638054941?text=Hi%21%20I%27d%20like%20to%20see%20HolaTandem%20in%20action";
 
-const localBusinessSchema = {
+const softwareSchema = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "HolaTandem",
+  "@type": "SoftwareApplication",
+  "@id": "https://holatandem.com/#app",
+  name: "HolaTandem WhatsApp AI Assistant",
   description:
-    "Done-for-you WhatsApp AI automation for Costa del Sol salons, aesthetic clinics and estate agents. Answers leads instantly, books appointments and follows up in your customer's language.",
+    "Done-for-you WhatsApp AI assistant for local service businesses on the Costa del Sol. Answers leads instantly, books appointments and follows up in the customer's language, 24/7.",
   url: "https://holatandem.com/",
   image: "https://holatandem.com/assets/og_image.png",
-  areaServed: "Costa del Sol, Málaga, Spain",
-  knowsLanguage: ["es", "en", "ru", "de", "fr", "ro"],
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "WhatsApp Business Platform",
+  inLanguage: ["es", "en", "ru", "de", "fr", "ro"],
+  featureList: [
+    "Instant WhatsApp replies in any language",
+    "Automated appointment booking",
+    "Lead qualification",
+    "Appointment reminders and no-show reduction",
+    "Human handover on demand",
+    "Done-for-you setup and ongoing management",
+  ],
+  offers: {
+    "@type": "Offer",
+    url: "https://holatandem.com/#pricing",
+    priceCurrency: "EUR",
+    availability: "https://schema.org/InStock",
+    seller: { "@id": "https://holatandem.com/#organization" },
+  },
+  provider: { "@id": "https://holatandem.com/#organization" },
+  areaServed: { "@type": "Place", name: "Costa del Sol, Málaga, Spain" },
+};
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://holatandem.com/#elena-ignat",
+  name: "Elena Ignat",
+  jobTitle: "Founder",
+  image: "https://holatandem.com/assets/founder.jpg",
+  worksFor: { "@id": "https://holatandem.com/#organization" },
   address: {
     "@type": "PostalAddress",
     addressLocality: "Fuengirola",
     addressRegion: "Málaga",
     addressCountry: "ES",
   },
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "sales",
-    url: "https://wa.me/34638054941",
-  },
+  url: "https://holatandem.com/",
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is HolaTandem?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "HolaTandem is a managed WhatsApp AI assistant service for small businesses in Costa del Sol, Spain. Founded by Elena Ignat and based in Fuengirola, it handles incoming WhatsApp enquiries, books appointments and sends reminders automatically — in English, Spanish, Russian, German, French and Romanian — for hair salons, aesthetic clinics and estate agents.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is this just a chatbot?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. Unlike a basic chatbot, it understands what each customer is asking and replies naturally in their language — and hands the conversation to you whenever a human touch is needed.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does it use my existing WhatsApp number?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — it works on your dedicated business WhatsApp number, the one your customers already message. No new number to learn or share.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What languages does it speak?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "It replies in your customer's language automatically — ideal for the Costa del Sol's mix of locals and international visitors. Supported languages include Spanish, English, Russian, German, French and Romanian.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is my data safe?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. We use GDPR-compliant, EU-based tools and never sell your data. See our Privacy Policy for the details.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How long does setup take?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Days, not months. We handle the whole setup for you and you approve everything before it goes live.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is there a long contract?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No long lock-in — you can cancel anytime. We'd rather keep you because it works.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Will it replace my booking software?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No — it works alongside the tools you already use. You don't have to change how you run your business.",
+      },
+    },
+  ],
 };
 
 
@@ -33,11 +130,19 @@ export default function Home() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <header>
         <div className="wrap nav">
-          <a className="brand" href="#top" aria-label="HolaTandem home">
+          <a className="brand" href="/" aria-label="HolaTandem home">
             <svg
               className="logo-mark"
               viewBox="64 74 432 404"
@@ -742,7 +847,13 @@ export default function Home() {
           <div className="wrap">
             <div className="founder-card">
               <div className="avatar">
-                <img src="assets/founder.jpg" alt="Elena Ignat, founder of HolaTandem" />
+                <Image
+                  src="/assets/founder.jpg"
+                  alt="Elena Ignat, founder of HolaTandem"
+                  width={104}
+                  height={104}
+                  loading="lazy"
+                />
               </div>
               <div>
                 <h3>Elena Ignat</h3>
@@ -1119,7 +1230,7 @@ export default function Home() {
           </div>
           <div className="fbot">
             <span>
-              © <span id="yr"></span> HolaTandem · holatandem.com
+              © {new Date().getFullYear()} HolaTandem · holatandem.com
             </span>
             <span
               data-en="Built on WhatsApp Business Platform"

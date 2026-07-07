@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Legal Notice / Aviso Legal — HolaTandem",
   description:
     "Legal notice governing the use of holatandem.com under Spanish law (LSSI-CE).",
+  alternates: { canonical: "/aviso-legal" },
 };
 
 export default function AvisoLegal() {
@@ -34,6 +35,9 @@ export default function AvisoLegal() {
             <h2>1. Site owner</h2>
             <p>
               Elena Ignat
+              <br />
+              {/* TODO (C6): Add your NIF/NIE here before publishing — required by LSSI-CE */}
+              NIF: [INSERT YOUR NIF HERE]
               <br />
               Fuengirola, Málaga · Spain
               <br />
