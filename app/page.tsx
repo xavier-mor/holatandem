@@ -33,7 +33,7 @@ const faqSchema = {
       name: "Is this just a chatbot?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Far from it. HolaTandem understands what your customers are actually asking, replies naturally in their language, and hands over to you when the conversation needs a human touch.",
+        text: "No. Unlike a basic chatbot, it understands what each customer is asking and replies naturally in their language — and hands the conversation to you whenever a human touch is needed.",
       },
     },
     {
@@ -41,7 +41,7 @@ const faqSchema = {
       name: "Does it use my existing WhatsApp number?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. It runs on the dedicated WhatsApp Business number your customers already use — no new number to hand out.",
+        text: "Yes — it works on your dedicated business WhatsApp number, the one your customers already message. No new number to learn or share.",
       },
     },
     {
@@ -49,7 +49,7 @@ const faqSchema = {
       name: "What languages does it speak?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "It replies in your customer's language automatically — perfect for the Costa del Sol's mix of locals and international visitors.",
+        text: "It replies in your customer's language automatically — ideal for the Costa del Sol's mix of locals and international visitors.",
       },
     },
     {
@@ -57,7 +57,7 @@ const faqSchema = {
       name: "Is my data safe?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. We use GDPR-compliant, EU-based tools. Your data is never sold or used for anything other than running your service.",
+        text: "Yes. We use GDPR-compliant, EU-based tools and never sell your data. See our Privacy Policy for the details.",
       },
     },
     {
@@ -73,7 +73,7 @@ const faqSchema = {
       name: "Is there a long contract?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No long-term lock-in. You stay because it works — cancel any time if you're not satisfied.",
+        text: "No long lock-in — you can cancel anytime. We'd rather keep you because it works.",
       },
     },
     {
@@ -81,7 +81,7 @@ const faqSchema = {
       name: "Will it replace my booking software?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No — it works alongside whatever tools you already use. No workflow changes needed.",
+        text: "No — it works alongside the tools you already use. You don't have to change how you run your business.",
       },
     },
   ],
@@ -544,11 +544,11 @@ export default function Home() {
                   We build &amp; connect it
                 </h3>
                 <p
-                  data-en="Your assistant is trained on your details and connected to your WhatsApp and calendar — done for you, end to end."
-                  data-es="Tu asistente se entrena con tus datos y se conecta a tu WhatsApp y calendario — todo hecho por ti, de principio a fin."
+                  data-en="Your assistant is trained on your details and connected to your WhatsApp — done for you, end to end."
+                  data-es="Tu asistente se entrena con tus datos y se conecta a tu WhatsApp — todo hecho por ti, de principio a fin."
                 >
                   Your assistant is trained on your details and connected to
-                  your WhatsApp and calendar — done for you, end to end.
+                  your WhatsApp — done for you, end to end.
                 </p>
               </div>
               <div className="step">
@@ -677,7 +677,7 @@ export default function Home() {
                   Works on your existing number
                 </div>
                 <div className="col-ht">
-                  <span className="yes">✓</span>
+                  <span className="yes" data-en="✓ Keep your own number" data-es="✓ Mantén tu número">✓ Keep your own number</span>
                 </div>
                 <div className="no" data-en="Often a new number" data-es="A menudo un número nuevo">
                   Often a new number
@@ -796,84 +796,55 @@ export default function Home() {
             </p>
             <h2
               className="sec"
-              data-en="A local expert, not a faceless platform"
-              data-es="Un experto local, no una plataforma impersonal"
+              data-en="A real person, not a faceless bot vendor"
+              data-es="Una persona real, no un proveedor de bots sin cara"
             >
-              A local expert, not a faceless platform
+              A real person, not a faceless bot vendor
             </h2>
           </div>
           <div className="wrap">
             <div className="founder-card">
-              <p
-                className="founder-quote"
-                data-en="Hi, I'm Elena. I build and run your WhatsApp assistant myself, right here on the Costa del Sol — no call centre, no faceless agency."
-                data-es="Hola, soy Elena. Creo y gestiono tu asistente de WhatsApp yo misma, aquí en la Costa del Sol — sin call center, sin agencia impersonal."
-              >
-                Hi, I&apos;m Elena. I build and run your WhatsApp assistant
-                myself, right here on the Costa del Sol — no call centre, no
-                faceless agency.
-              </p>
-              <div className="founder-meta">
-                <div className="founder-avatar-ring">
-                  <svg
-                    viewBox="64 74 432 404"
-                    width="30"
-                    height="30"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M200.08 355.54C181.733 394.527 171.413 422.62 169.12 439.82C202.373 423.767 232.187 402.553 258.56 376.18L200.08 355.54Z"
-                      fill="#FAF8F5"
-                    />
-                    <path
-                      d="M219 405.42C300.694 405.42 366.92 339.194 366.92 257.5C366.92 175.806 300.694 109.58 219 109.58C137.306 109.58 71.08 175.806 71.08 257.5C71.08 339.194 137.306 405.42 219 405.42Z"
-                      fill="#FAF8F5"
-                    />
-                    <path
-                      d="M348 388.22C354.88 424.913 369.213 451.287 391 467.34C397.88 437.527 404.187 411.153 409.92 388.22H348Z"
-                      fill="#5AC8AE"
-                    />
-                    <path
-                      d="M348 417.46C424.944 417.46 487.32 355.084 487.32 278.14C487.32 201.196 424.944 138.82 348 138.82C271.056 138.82 208.68 201.196 208.68 278.14C208.68 355.084 271.056 417.46 348 417.46Z"
-                      fill="#5AC8AE"
-                    />
-                    <circle cx="440.29" cy="118.24" r="34.92" fill="#E26031" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="founder-name">Elena Ignat</div>
-                  <div
-                    className="founder-title"
-                    data-en="Founder · Costa del Sol"
-                    data-es="Fundadora · Costa del Sol"
-                  >
-                    Founder · Costa del Sol
-                  </div>
-                </div>
+              <div className="avatar">
+                <img src="assets/founder.jpg" alt="Elena Ignat, founder of HolaTandem" />
               </div>
-              <div className="founder-pills">
-                <span
-                  className="founder-pill"
-                  data-en="Local, in Fuengirola"
-                  data-es="Local, en Fuengirola"
+              <div>
+                <h3>Elena Ignat</h3>
+                <div
+                  className="role"
+                  data-en="Founder · Costa del Sol"
+                  data-es="Fundadora · Costa del Sol"
                 >
-                  Local, in Fuengirola
-                </span>
-                <span
-                  className="founder-pill"
-                  data-en="Done for you, end to end"
-                  data-es="Hecho para ti, de principio a fin"
+                  Founder · Costa del Sol
+                </div>
+                <p
+                  data-en="Hi, I'm Elena. I build and run your WhatsApp assistant myself, right here on the Costa del Sol — no call centre, no faceless agency. I'll set it up for your business in person, and I'm one message away whenever you need me."
+                  data-es="Hola, soy Elena. Creo y gestiono tu asistente de WhatsApp personalmente, aquí en la Costa del Sol — sin call center, sin agencia anónima. Lo configuro para tu negocio en persona y estoy a un mensaje de distancia cuando me necesites."
                 >
-                  Done for you, end to end
-                </span>
-                <span
-                  className="founder-pill"
-                  data-en="Direct communication"
-                  data-es="Comunicación directa"
-                >
-                  Direct communication
-                </span>
+                  Hi, I&apos;m Elena. I build and run your WhatsApp assistant
+                  myself, right here on the Costa del Sol — no call centre, no
+                  faceless agency. I&apos;ll set it up for your business in
+                  person, and I&apos;m one message away whenever you need me.
+                </p>
+                <div className="founder-points">
+                  <span>
+                    <span className="ck">✓</span>{" "}
+                    <span data-en="Local, in Fuengirola" data-es="Local, en Fuengirola">
+                      Local, in Fuengirola
+                    </span>
+                  </span>
+                  <span>
+                    <span className="ck">✓</span>{" "}
+                    <span data-en="Done for you, end to end" data-es="Hecho por ti, de principio a fin">
+                      Done for you, end to end
+                    </span>
+                  </span>
+                  <span>
+                    <span className="ck">✓</span>{" "}
+                    <span data-en="You deal with me directly" data-es="Tratas conmigo directamente">
+                      You deal with me directly
+                    </span>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -881,216 +852,170 @@ export default function Home() {
 
         <section id="pricing" style={{ background: "#fbf9f6" }}>
           <div className="wrap center">
-            <p className="kicker" data-en="Simple pricing" data-es="Precios sencillos">
-              Simple pricing
+            <p className="kicker" data-en="Plans" data-es="Planes">
+              Plans
             </p>
             <h2
               className="sec"
-              data-en="One flat monthly fee. No surprises."
-              data-es="Una cuota mensual fija. Sin sorpresas."
+              data-en="Your plan and price, on a free demo"
+              data-es="Tu plan y precio, en una demo gratuita"
             >
-              One flat monthly fee. No surprises.
+              Your plan and price, on a free demo
             </h2>
             <p
               className="lead"
-              data-en="Plans scale with your needs — from a single salon to a busy multi-language clinic. Setup is included; we don't charge per conversation."
-              data-es="Los planes crecen contigo — desde un solo salón hasta una clínica multilingüe con mucho volumen. La configuración va incluida; no cobramos por conversación."
+              data-en="Tell us about your business on a free demo and we'll recommend the plan and price that fit."
+              data-es="Cuéntanos sobre tu negocio en una demo gratuita y te recomendamos el plan y el precio que encajan."
             >
-              Plans scale with your needs — from a single salon to a busy
-              multi-language clinic. Setup is included; we don&apos;t charge per
-              conversation.
+              Tell us about your business on a free demo and we&apos;ll
+              recommend the plan and price that fit.
             </p>
-
-            <div className="price-card">
-              <div className="from" data-en="Plans from" data-es="Planes desde">
-                Plans from
-              </div>
-              <div className="big">
-                €99
-                <span>
-                  {" "}
-                  / <span data-en="month" data-es="mes">month</span>
-                </span>
-              </div>
-              <div className="plist">
-                <span>
-                  <span className="ck">✓</span>{" "}
-                  <span data-en="Done-for-you setup" data-es="Configuración hecha por ti">
-                    Done-for-you setup
-                  </span>
-                </span>
-                <span>
-                  <span className="ck">✓</span>{" "}
-                  <span
-                    data-en="Speaks your customer's language"
-                    data-es="Habla el idioma de tu cliente"
-                  >
-                    Speaks your customer&apos;s language
-                  </span>
-                </span>
-                <span>
-                  <span className="ck">✓</span>{" "}
-                  <span data-en="Instant replies, 24/7" data-es="Respuestas al instante, 24/7">
-                    Instant replies, 24/7
-                  </span>
-                </span>
-                <span>
-                  <span className="ck">✓</span>{" "}
-                  <span data-en="Appointment booking" data-es="Reserva de citas">
-                    Appointment booking
-                  </span>
-                </span>
-                <span>
-                  <span className="ck">✓</span>{" "}
-                  <span data-en="Reminders & follow-ups" data-es="Recordatorios y seguimiento">
-                    Reminders &amp; follow-ups
-                  </span>
-                </span>
-                <span>
-                  <span className="ck">✓</span>{" "}
-                  <span data-en="Local support" data-es="Soporte local">
-                    Local support
-                  </span>
-                </span>
-              </div>
+            <div style={{ marginTop: "30px" }}>
               <a
                 className="btn btn-navy"
-                href="#demo"
-                data-en="See which plan fits — book a demo"
-                data-es="Descubre tu plan — pide una demo"
+                href="https://calendly.com/elena-holatandem"
+                target="_blank"
+                rel="noopener"
+                data-en="Book a free demo"
+                data-es="Pide una demo"
               >
-                See which plan fits — book a demo
+                Book a free demo
               </a>
-              <p
-                className="fine"
-                data-en="The right plan depends on your languages, volume and integrations. We'll recommend one on a free 20-minute demo — no pressure."
-                data-es="El plan ideal depende de tus idiomas, volumen e integraciones. Te recomendamos uno en una demo gratuita de 20 minutos — sin compromiso."
-              >
-                The right plan depends on your languages, volume and
-                integrations. We&apos;ll recommend one on a free 20-minute demo
-                — no pressure.
-              </p>
             </div>
+            <p
+              className="compare-note"
+              data-en="No long contract, and you approve everything before it goes live."
+              data-es="Sin contratos largos, y tú apruebas todo antes de activarlo."
+            >
+              No long contract, and you approve everything before it goes live.
+            </p>
           </div>
         </section>
 
         <section id="faq" style={{ background: "#fbf9f6" }}>
           <div className="wrap center">
-            <p className="kicker" data-en="FAQ" data-es="Preguntas frecuentes">
+            <p className="kicker" data-en="FAQ" data-es="Preguntas">
               FAQ
             </p>
             <h2
               className="sec"
-              data-en="Questions we hear most"
-              data-es="Las preguntas que más nos hacen"
+              data-en="Questions, answered"
+              data-es="Preguntas, respondidas"
             >
-              Questions we hear most
+              Questions, answered
             </h2>
           </div>
           <div className="wrap">
-            <div className="faq">
-              <div className="faq-item">
-                <h3 data-en="Is this just a chatbot?" data-es="¿Es solo un chatbot?">
+            <div className="faq-list">
+              <details>
+                <summary data-en="Is this just a chatbot?" data-es="¿Es solo un chatbot?">
                   Is this just a chatbot?
-                </h3>
-                <p
-                  data-en="Far from it. HolaTandem understands what your customers are actually asking, replies naturally in their language, and hands over to you when the conversation needs a human touch."
-                  data-es="Para nada. HolaTandem entiende lo que tus clientes realmente preguntan, responde de forma natural en su idioma y te pasa la conversación cuando necesita un toque humano."
+                </summary>
+                <div
+                  className="faq-a"
+                  data-en="No. Unlike a basic chatbot, it understands what each customer is asking and replies naturally in their language — and hands the conversation to you whenever a human touch is needed."
+                  data-es="No. A diferencia de un chatbot básico, entiende lo que pregunta cada cliente y responde con naturalidad en su idioma — y te pasa la conversación cuando hace falta una persona."
                 >
-                  Far from it. HolaTandem understands what your customers are
-                  actually asking, replies naturally in their language, and
-                  hands over to you when the conversation needs a human touch.
-                </p>
-              </div>
-              <div className="faq-item">
-                <h3
+                  No. Unlike a basic chatbot, it understands what each customer
+                  is asking and replies naturally in their language — and hands
+                  the conversation to you whenever a human touch is needed.
+                </div>
+              </details>
+              <details>
+                <summary
                   data-en="Does it use my existing WhatsApp number?"
-                  data-es="¿Funciona con mi número de WhatsApp actual?"
+                  data-es="¿Usa mi número de WhatsApp actual?"
                 >
                   Does it use my existing WhatsApp number?
-                </h3>
-                <p
-                  data-en="Yes. It runs on the dedicated WhatsApp Business number your customers already use — no new number to hand out."
-                  data-es="Sí. Funciona en el número de WhatsApp Business que tus clientes ya conocen — sin número nuevo que repartir."
+                </summary>
+                <div
+                  className="faq-a"
+                  data-en="Yes — it works on your dedicated business WhatsApp number, the one your customers already message. No new number to learn or share."
+                  data-es="Sí — funciona en tu número de WhatsApp Business, el que tus clientes ya usan. Sin número nuevo que aprender ni repartir."
                 >
-                  Yes. It runs on the dedicated WhatsApp Business number your
-                  customers already use — no new number to hand out.
-                </p>
-              </div>
-              <div className="faq-item">
-                <h3
+                  Yes — it works on your dedicated business WhatsApp number,
+                  the one your customers already message. No new number to
+                  learn or share.
+                </div>
+              </details>
+              <details>
+                <summary
                   data-en="What languages does it speak?"
                   data-es="¿Qué idiomas habla?"
                 >
                   What languages does it speak?
-                </h3>
-                <p
-                  data-en="It replies in your customer's language automatically — perfect for the Costa del Sol's mix of locals and international visitors."
-                  data-es="Responde en el idioma de tu cliente automáticamente — ideal para la mezcla de locales e internacionales de la Costa del Sol."
+                </summary>
+                <div
+                  className="faq-a"
+                  data-en="It replies in your customer's language automatically — ideal for the Costa del Sol's mix of locals and international visitors."
+                  data-es="Responde automáticamente en el idioma de tu cliente — ideal para la mezcla de locales e internacionales de la Costa del Sol."
                 >
                   It replies in your customer&apos;s language automatically —
-                  perfect for the Costa del Sol&apos;s mix of locals and
+                  ideal for the Costa del Sol&apos;s mix of locals and
                   international visitors.
-                </p>
-              </div>
-              <div className="faq-item">
-                <h3 data-en="Is my data safe?" data-es="¿Están seguros mis datos?">
+                </div>
+              </details>
+              <details>
+                <summary data-en="Is my data safe?" data-es="¿Están seguros mis datos?">
                   Is my data safe?
-                </h3>
-                <p
-                  data-en="Yes. We use GDPR-compliant, EU-based tools. Your data is never sold or used for anything other than running your service."
-                  data-es="Sí. Usamos herramientas conformes con el RGPD y con sede en la UE. Tus datos nunca se venden ni se usan para nada que no sea tu servicio."
+                </summary>
+                <div
+                  className="faq-a"
+                  data-en="Yes. We use GDPR-compliant, EU-based tools and never sell your data. See our Privacy Policy for the details."
+                  data-es="Sí. Usamos herramientas conformes al RGPD y alojadas en la UE, y nunca vendemos tus datos. Consulta nuestra Política de Privacidad para más detalles."
                 >
-                  Yes. We use GDPR-compliant, EU-based tools. Your data is
-                  never sold or used for anything other than running your
-                  service.
-                </p>
-              </div>
-              <div className="faq-item">
-                <h3
+                  Yes. We use GDPR-compliant, EU-based tools and never sell
+                  your data. See our Privacy Policy for the details.
+                </div>
+              </details>
+              <details>
+                <summary
                   data-en="How long does setup take?"
                   data-es="¿Cuánto tarda la configuración?"
                 >
                   How long does setup take?
-                </h3>
-                <p
+                </summary>
+                <div
+                  className="faq-a"
                   data-en="Days, not months. We handle the whole setup for you and you approve everything before it goes live."
-                  data-es="Días, no meses. Nos encargamos de toda la configuración y tú apruebas todo antes de que entre en funcionamiento."
+                  data-es="Días, no meses. Nos encargamos de toda la configuración y tú apruebas todo antes de activarlo."
                 >
                   Days, not months. We handle the whole setup for you and you
                   approve everything before it goes live.
-                </p>
-              </div>
-              <div className="faq-item">
-                <h3
+                </div>
+              </details>
+              <details>
+                <summary
                   data-en="Is there a long contract?"
                   data-es="¿Hay un contrato largo?"
                 >
                   Is there a long contract?
-                </h3>
-                <p
-                  data-en="No long-term lock-in. You stay because it works — cancel any time if you're not satisfied."
-                  data-es="Sin ataduras a largo plazo. Te quedas porque funciona — cancela cuando quieras si no estás satisfecho."
+                </summary>
+                <div
+                  className="faq-a"
+                  data-en="No long lock-in — you can cancel anytime. We'd rather keep you because it works."
+                  data-es="Sin permanencia larga — puedes cancelar cuando quieras. Preferimos que te quedes porque funciona."
                 >
-                  No long-term lock-in. You stay because it works — cancel any
-                  time if you&apos;re not satisfied.
-                </p>
-              </div>
-              <div className="faq-item">
-                <h3
+                  No long lock-in — you can cancel anytime. We&apos;d rather
+                  keep you because it works.
+                </div>
+              </details>
+              <details>
+                <summary
                   data-en="Will it replace my booking software?"
-                  data-es="¿Reemplazará mi software de reservas?"
+                  data-es="¿Sustituye a mi software de reservas?"
                 >
                   Will it replace my booking software?
-                </h3>
-                <p
-                  data-en="No — it works alongside whatever tools you already use. No workflow changes needed."
-                  data-es="No — trabaja junto con las herramientas que ya usas. No hace falta cambiar ningún flujo de trabajo."
+                </summary>
+                <div
+                  className="faq-a"
+                  data-en="No — it works alongside the tools you already use. You don't have to change how you run your business."
+                  data-es="No — funciona junto a las herramientas que ya usas. No tienes que cambiar cómo llevas tu negocio."
                 >
-                  No — it works alongside whatever tools you already use. No
-                  workflow changes needed.
-                </p>
-              </div>
+                  No — it works alongside the tools you already use. You
+                  don&apos;t have to change how you run your business.
+                </div>
+              </details>
             </div>
           </div>
         </section>
