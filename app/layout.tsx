@@ -20,7 +20,7 @@ export const metadata: Metadata = {
       "Done-for-you WhatsApp AI for Costa del Sol salons, clinics and estate agents. Replies in seconds, books appointments and follows up — in your customer's language.",
     images: [
       {
-        url: "https://holatandem.com/assets/og_image.png",
+        url: "https://holatandem.com/og-image.png",
         width: 1200,
         height: 630,
       },
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "HolaTandem — WhatsApp AI that answers every lead, in any language",
     description:
       "Done-for-you WhatsApp AI for Costa del Sol salons, clinics and estate agents. Replies in seconds, in your customer's language.",
-    images: ["https://holatandem.com/assets/og_image.png"],
+    images: ["https://holatandem.com/og-image.png"],
   },
 };
 

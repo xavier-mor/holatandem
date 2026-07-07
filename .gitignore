@@ -1,3 +1,10 @@
 node_modules
 .next/
 .DS_Store
+
+# Next.js on-demand image optimisation cache (not source files)
+# .next/cache/images/ is covered by .next/ above
+
+# If you ever pre-generate static WebP/AVIF variants, ignore them here
+# public/**/*.webp
+# public/**/*.avif

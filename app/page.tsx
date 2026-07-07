@@ -1,153 +1,103 @@
-"use client";
+import { HeaderControls } from "@/app/components/HeaderControls";
+import { PageEffects } from "@/app/components/PageEffects";
 
-import { useEffect } from "react";
-
-const WA_BASE = "https://wa.me/34638054941";
 const WA_DEFAULT =
   "https://wa.me/34638054941?text=Hi%20HolaTandem%20%F0%9F%91%8B%20I%20saw%20your%20site";
 
-export default function Home() {
-  const setLang = (l: "en" | "es") => {
-    document.documentElement.lang = l;
-    document.getElementById("en")?.classList.toggle("active", l === "en");
-    document.getElementById("es")?.classList.toggle("active", l === "es");
-    document.querySelectorAll<HTMLElement>("[data-en]").forEach((el) => {
-      const v = el.getAttribute("data-" + l);
-      if (v != null) el.innerHTML = v;
-    });
-    const waMsg =
-      l === "es"
-        ? "Hola HolaTandem 👋 vi vuestra web"
-        : "Hi HolaTandem 👋 I saw your site";
-    document
-      .querySelectorAll<HTMLAnchorElement>('a[href*="wa.me/34638054941"]')
-      .forEach((a) => {
-        a.href = WA_BASE + "?text=" + encodeURIComponent(waMsg);
-      });
-    try {
-      localStorage.setItem("ht_lang", l);
-    } catch {}
-  };
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "HolaTandem",
+  description:
+    "Done-for-you WhatsApp AI for Costa del Sol salons, clinics and estate agents. Answers leads in seconds, books appointments and follows up — in your customer's language.",
+  url: "https://holatandem.com",
+  telephone: "+34638054941",
+  email: "info@holatandem.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Fuengirola",
+    addressRegion: "Málaga",
+    addressCountry: "ES",
+  },
+  areaServed: { "@type": "Place", name: "Costa del Sol" },
+  priceRange: "€€",
+  founder: { "@type": "Person", name: "Elena Ignat" },
+};
 
-  useEffect(() => {
-    let saved: string | null = null;
-    try {
-      saved = localStorage.getItem("ht_lang");
-    } catch {}
-    const l = (saved ||
-      ((navigator.language || "en").toLowerCase().startsWith("es")
-        ? "es"
-        : "en")) as "en" | "es";
-    setLang(l);
-
-    const yr = document.getElementById("yr");
-    if (yr) yr.textContent = String(new Date().getFullYear());
-
-    const navlinks = document.getElementById("navlinks");
-    const navClick = () => navlinks?.classList.remove("open");
-    const navAnchors = document.querySelectorAll("#navlinks a");
-    navAnchors.forEach((a) => a.addEventListener("click", navClick));
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("in");
-            io.unobserve(e.target);
-          }
-        });
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is this just a chatbot?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Far from it. HolaTandem understands what your customers are actually asking, replies naturally in their language, and hands over to you when the conversation needs a human touch.",
       },
-      { threshold: 0.12 }
-    );
-    document
-      .querySelectorAll(".step, .pain .row, .who .w, .price-card, .compare")
-      .forEach((el) => {
-        el.classList.add("reveal");
-        io.observe(el);
-      });
+    },
+    {
+      "@type": "Question",
+      name: "Does it use my existing WhatsApp number?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. It runs on the dedicated WhatsApp Business number your customers already use — no new number to hand out.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What languages does it speak?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "It replies in your customer's language automatically — perfect for the Costa del Sol's mix of locals and international visitors.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is my data safe?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. We use GDPR-compliant, EU-based tools. Your data is never sold or used for anything other than running your service.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How long does setup take?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Days, not months. We handle the whole setup for you and you approve everything before it goes live.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is there a long contract?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No long-term lock-in. You stay because it works — cancel any time if you're not satisfied.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Will it replace my booking software?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No — it works alongside whatever tools you already use. No workflow changes needed.",
+      },
+    },
+  ],
+};
 
-    const timers: number[] = [];
-    let io2: IntersectionObserver | undefined;
-    const body = document.getElementById("chatBody");
-    if (body) {
-      const bubs = body.querySelectorAll<HTMLElement>(".bub");
-      const typing = body.querySelector<HTMLElement>(".typing");
-      const scrollBottom = () => {
-        body.scrollTop = body.scrollHeight;
-      };
-      const reveal = (el: HTMLElement) => {
-        el.style.display = "block";
-        el.style.opacity = "0";
-        el.style.transform = "translateY(8px)";
-        el.getBoundingClientRect();
-        el.style.opacity = "1";
-        el.style.transform = "translateY(0)";
-        scrollBottom();
-      };
-      const showTyping = (on: boolean) => {
-        if (!typing) return;
-        typing.style.display = on ? "flex" : "none";
-        if (on) scrollBottom();
-      };
-      const steps = [
-        () => reveal(bubs[0]),
-        () => showTyping(true),
-        () => {
-          showTyping(false);
-          reveal(bubs[1]);
-        },
-        () => reveal(bubs[2]),
-        () => showTyping(true),
-        () => {
-          showTyping(false);
-          reveal(bubs[3]);
-        },
-      ];
-      const delays = [800, 1300, 600, 1300, 1300, 600];
-      const play = () => {
-        bubs.forEach((b) => {
-          b.style.display = "none";
-        });
-        showTyping(false);
-        let i = 0;
-        const next = () => {
-          if (i >= steps.length) {
-            timers.push(window.setTimeout(play, 4200));
-            return;
-          }
-          steps[i]();
-          const d = delays[i];
-          i++;
-          timers.push(window.setTimeout(next, d));
-        };
-        next();
-      };
-      let played = false;
-      io2 = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting && !played) {
-              played = true;
-              timers.push(window.setTimeout(play, 450));
-            }
-          });
-        },
-        { threshold: 0.3 }
-      );
-      io2.observe(body);
-    }
-
-    return () => {
-      io.disconnect();
-      io2?.disconnect();
-      timers.forEach((t) => clearTimeout(t));
-      navAnchors.forEach((a) => a.removeEventListener("click", navClick));
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <header>
         <div className="wrap nav">
           <a className="brand" href="#top" aria-label="HolaTandem home">
@@ -209,27 +159,7 @@ export default function Home() {
               Book a free demo
             </a>
           </nav>
-          <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-            <div className="lang" role="group" aria-label="Language">
-              <button id="en" className="active" onClick={() => setLang("en")}>
-                EN
-              </button>
-              <button id="es" onClick={() => setLang("es")}>
-                ES
-              </button>
-            </div>
-            <button
-              className="burger"
-              aria-label="Menu"
-              onClick={() =>
-                document.getElementById("navlinks")?.classList.toggle("open")
-              }
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-          </div>
+          <HeaderControls />
         </div>
       </header>
 
@@ -753,6 +683,23 @@ export default function Home() {
                   Often a new number
                 </div>
               </div>
+              <div className="crow">
+                <div
+                  className="feat"
+                  data-en="Hands over to a real person"
+                  data-es="Pasa a una persona real"
+                >
+                  Hands over to a real person
+                </div>
+                <div className="col-ht">
+                  <span className="yes" data-en="✓ Anytime" data-es="✓ Cuando quieras">
+                    ✓ Anytime
+                  </span>
+                </div>
+                <div className="no" data-en="Often dead-ends" data-es="A menudo sin salida">
+                  Often dead-ends
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -837,6 +784,96 @@ export default function Home() {
                   Qualify buyers and renters instantly, capture details and pass
                   on only the serious leads.
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="founder">
+          <div className="wrap center">
+            <p className="kicker" data-en="Who's behind it" data-es="Quién hay detrás">
+              Who&apos;s behind it
+            </p>
+            <h2
+              className="sec"
+              data-en="A local expert, not a faceless platform"
+              data-es="Un experto local, no una plataforma impersonal"
+            >
+              A local expert, not a faceless platform
+            </h2>
+          </div>
+          <div className="wrap">
+            <div className="founder-card">
+              <p
+                className="founder-quote"
+                data-en="Hi, I'm Elena. I build and run your WhatsApp assistant myself, right here on the Costa del Sol — no call centre, no faceless agency."
+                data-es="Hola, soy Elena. Creo y gestiono tu asistente de WhatsApp yo misma, aquí en la Costa del Sol — sin call center, sin agencia impersonal."
+              >
+                Hi, I&apos;m Elena. I build and run your WhatsApp assistant
+                myself, right here on the Costa del Sol — no call centre, no
+                faceless agency.
+              </p>
+              <div className="founder-meta">
+                <div className="founder-avatar-ring">
+                  <svg
+                    viewBox="64 74 432 404"
+                    width="30"
+                    height="30"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M200.08 355.54C181.733 394.527 171.413 422.62 169.12 439.82C202.373 423.767 232.187 402.553 258.56 376.18L200.08 355.54Z"
+                      fill="#FAF8F5"
+                    />
+                    <path
+                      d="M219 405.42C300.694 405.42 366.92 339.194 366.92 257.5C366.92 175.806 300.694 109.58 219 109.58C137.306 109.58 71.08 175.806 71.08 257.5C71.08 339.194 137.306 405.42 219 405.42Z"
+                      fill="#FAF8F5"
+                    />
+                    <path
+                      d="M348 388.22C354.88 424.913 369.213 451.287 391 467.34C397.88 437.527 404.187 411.153 409.92 388.22H348Z"
+                      fill="#5AC8AE"
+                    />
+                    <path
+                      d="M348 417.46C424.944 417.46 487.32 355.084 487.32 278.14C487.32 201.196 424.944 138.82 348 138.82C271.056 138.82 208.68 201.196 208.68 278.14C208.68 355.084 271.056 417.46 348 417.46Z"
+                      fill="#5AC8AE"
+                    />
+                    <circle cx="440.29" cy="118.24" r="34.92" fill="#E26031" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="founder-name">Elena Ignat</div>
+                  <div
+                    className="founder-title"
+                    data-en="Founder · Costa del Sol"
+                    data-es="Fundadora · Costa del Sol"
+                  >
+                    Founder · Costa del Sol
+                  </div>
+                </div>
+              </div>
+              <div className="founder-pills">
+                <span
+                  className="founder-pill"
+                  data-en="Local, in Fuengirola"
+                  data-es="Local, en Fuengirola"
+                >
+                  Local, in Fuengirola
+                </span>
+                <span
+                  className="founder-pill"
+                  data-en="Done for you, end to end"
+                  data-es="Hecho para ti, de principio a fin"
+                >
+                  Done for you, end to end
+                </span>
+                <span
+                  className="founder-pill"
+                  data-en="Direct communication"
+                  data-es="Comunicación directa"
+                >
+                  Direct communication
+                </span>
               </div>
             </div>
           </div>
@@ -937,6 +974,127 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="faq" style={{ background: "#fbf9f6" }}>
+          <div className="wrap center">
+            <p className="kicker" data-en="FAQ" data-es="Preguntas frecuentes">
+              FAQ
+            </p>
+            <h2
+              className="sec"
+              data-en="Questions we hear most"
+              data-es="Las preguntas que más nos hacen"
+            >
+              Questions we hear most
+            </h2>
+          </div>
+          <div className="wrap">
+            <div className="faq">
+              <div className="faq-item">
+                <h3 data-en="Is this just a chatbot?" data-es="¿Es solo un chatbot?">
+                  Is this just a chatbot?
+                </h3>
+                <p
+                  data-en="Far from it. HolaTandem understands what your customers are actually asking, replies naturally in their language, and hands over to you when the conversation needs a human touch."
+                  data-es="Para nada. HolaTandem entiende lo que tus clientes realmente preguntan, responde de forma natural en su idioma y te pasa la conversación cuando necesita un toque humano."
+                >
+                  Far from it. HolaTandem understands what your customers are
+                  actually asking, replies naturally in their language, and
+                  hands over to you when the conversation needs a human touch.
+                </p>
+              </div>
+              <div className="faq-item">
+                <h3
+                  data-en="Does it use my existing WhatsApp number?"
+                  data-es="¿Funciona con mi número de WhatsApp actual?"
+                >
+                  Does it use my existing WhatsApp number?
+                </h3>
+                <p
+                  data-en="Yes. It runs on the dedicated WhatsApp Business number your customers already use — no new number to hand out."
+                  data-es="Sí. Funciona en el número de WhatsApp Business que tus clientes ya conocen — sin número nuevo que repartir."
+                >
+                  Yes. It runs on the dedicated WhatsApp Business number your
+                  customers already use — no new number to hand out.
+                </p>
+              </div>
+              <div className="faq-item">
+                <h3
+                  data-en="What languages does it speak?"
+                  data-es="¿Qué idiomas habla?"
+                >
+                  What languages does it speak?
+                </h3>
+                <p
+                  data-en="It replies in your customer's language automatically — perfect for the Costa del Sol's mix of locals and international visitors."
+                  data-es="Responde en el idioma de tu cliente automáticamente — ideal para la mezcla de locales e internacionales de la Costa del Sol."
+                >
+                  It replies in your customer&apos;s language automatically —
+                  perfect for the Costa del Sol&apos;s mix of locals and
+                  international visitors.
+                </p>
+              </div>
+              <div className="faq-item">
+                <h3 data-en="Is my data safe?" data-es="¿Están seguros mis datos?">
+                  Is my data safe?
+                </h3>
+                <p
+                  data-en="Yes. We use GDPR-compliant, EU-based tools. Your data is never sold or used for anything other than running your service."
+                  data-es="Sí. Usamos herramientas conformes con el RGPD y con sede en la UE. Tus datos nunca se venden ni se usan para nada que no sea tu servicio."
+                >
+                  Yes. We use GDPR-compliant, EU-based tools. Your data is
+                  never sold or used for anything other than running your
+                  service.
+                </p>
+              </div>
+              <div className="faq-item">
+                <h3
+                  data-en="How long does setup take?"
+                  data-es="¿Cuánto tarda la configuración?"
+                >
+                  How long does setup take?
+                </h3>
+                <p
+                  data-en="Days, not months. We handle the whole setup for you and you approve everything before it goes live."
+                  data-es="Días, no meses. Nos encargamos de toda la configuración y tú apruebas todo antes de que entre en funcionamiento."
+                >
+                  Days, not months. We handle the whole setup for you and you
+                  approve everything before it goes live.
+                </p>
+              </div>
+              <div className="faq-item">
+                <h3
+                  data-en="Is there a long contract?"
+                  data-es="¿Hay un contrato largo?"
+                >
+                  Is there a long contract?
+                </h3>
+                <p
+                  data-en="No long-term lock-in. You stay because it works — cancel any time if you're not satisfied."
+                  data-es="Sin ataduras a largo plazo. Te quedas porque funciona — cancela cuando quieras si no estás satisfecho."
+                >
+                  No long-term lock-in. You stay because it works — cancel any
+                  time if you&apos;re not satisfied.
+                </p>
+              </div>
+              <div className="faq-item">
+                <h3
+                  data-en="Will it replace my booking software?"
+                  data-es="¿Reemplazará mi software de reservas?"
+                >
+                  Will it replace my booking software?
+                </h3>
+                <p
+                  data-en="No — it works alongside whatever tools you already use. No workflow changes needed."
+                  data-es="No — trabaja junto con las herramientas que ya usas. No hace falta cambiar ningún flujo de trabajo."
+                >
+                  No — it works alongside whatever tools you already use. No
+                  workflow changes needed.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="demo">
           <div className="wrap">
             <div className="cta-band">
@@ -972,7 +1130,7 @@ export default function Home() {
                 </a>
                 <a
                   className="btn btn-navy"
-                  href="mailto:hola@holatandem.com?subject=Demo%20request"
+                  href="mailto:info@holatandem.com?subject=Demo%20request"
                   data-en="Book a free demo"
                   data-es="Pide una demo"
                 >
@@ -1078,7 +1236,7 @@ export default function Home() {
               >
                 WhatsApp us
               </a>
-              <a href="mailto:hola@holatandem.com">hola@holatandem.com</a>
+              <a href="mailto:info@holatandem.com">info@holatandem.com</a>
               <a data-en="Fuengirola, Málaga · Spain" data-es="Fuengirola, Málaga · España">
                 Fuengirola, Málaga · Spain
               </a>
@@ -1087,10 +1245,10 @@ export default function Home() {
               <h4 data-en="Legal" data-es="Legal">
                 Legal
               </h4>
-              <a href="privacy.html" data-en="Privacy Policy" data-es="Política de privacidad">
+              <a href="/privacy" data-en="Privacy Policy" data-es="Política de privacidad">
                 Privacy Policy
               </a>
-              <a href="aviso-legal.html" data-en="Legal Notice" data-es="Aviso Legal">
+              <a href="/aviso-legal" data-en="Legal Notice" data-es="Aviso Legal">
                 Legal Notice
               </a>
             </div>
@@ -1108,6 +1266,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      <PageEffects />
     </>
   );
 }
