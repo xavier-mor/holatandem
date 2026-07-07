@@ -40,8 +40,8 @@
   try { lang = (localStorage.getItem('ht_lang') || (navigator.language || 'en')).toLowerCase().indexOf('es') === 0 ? 'es' : 'en'; } catch (e) {}
 
   var T = {
-    en: { txt: 'We use Google Analytics cookies to understand how the site is used. You can accept or decline.', more: 'Privacy', acc: 'Accept', dec: 'Decline' },
-    es: { txt: 'Usamos cookies de Google Analytics para entender cómo se usa el sitio. Puedes aceptar o rechazar.', more: 'Privacidad', acc: 'Aceptar', dec: 'Rechazar' }
+    en: { txt: 'We use Google Analytics cookies to understand how the site is used. You can accept or decline.', more: 'Privacy', url: '/en/privacy', acc: 'Accept', dec: 'Decline' },
+    es: { txt: 'Usamos cookies de Google Analytics para entender cómo se usa el sitio. Puedes aceptar o rechazar.', more: 'Privacidad', url: '/privacy', acc: 'Aceptar', dec: 'Rechazar' }
   }[lang];
 
   var bar = document.createElement('div');
@@ -51,7 +51,7 @@
   bar.style.cssText = 'position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:560px;margin:0 auto;background:#0D2B45;color:#e9eef3;border-radius:16px;padding:16px 18px;box-shadow:0 16px 40px rgba(13,43,69,.35);font-family:Manrope,system-ui,sans-serif;font-size:.92rem;display:flex;flex-wrap:wrap;align-items:center;gap:12px';
   bar.innerHTML =
     '<span style="flex:1;min-width:200px;line-height:1.45">' + T.txt +
-    ' <a href="/privacy" style="color:#7fd3c4;text-decoration:underline">' + T.more + '</a></span>' +
+    ' <a href="' + T.url + '" style="color:#7fd3c4;text-decoration:underline">' + T.more + '</a></span>' +
     '<span style="display:flex;gap:8px">' +
     '<button id="ht-cdecline" style="cursor:pointer;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;font-weight:700;font-family:inherit;font-size:.88rem;padding:9px 16px;border-radius:999px">' + T.dec + '</button>' +
     '<button id="ht-caccept" style="cursor:pointer;border:none;background:#2C94A0;color:#fff;font-weight:700;font-family:inherit;font-size:.88rem;padding:9px 18px;border-radius:999px">' + T.acc + '</button>' +
