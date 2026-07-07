@@ -14,8 +14,8 @@ function setLang(l: "en" | "es") {
   });
   const waMsg =
     l === "es"
-      ? "Hola HolaTandem 👋 vi vuestra web"
-      : "Hi HolaTandem 👋 I saw your site";
+      ? "¡Hola! Quiero ver HolaTandem en acción"
+      : "Hi! I'd like to see HolaTandem in action";
   document
     .querySelectorAll<HTMLAnchorElement>('a[href*="wa.me/34638054941"]')
     .forEach((a) => {

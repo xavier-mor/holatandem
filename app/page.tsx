@@ -2,90 +2,31 @@ import { HeaderControls } from "@/app/components/HeaderControls";
 import { PageEffects } from "@/app/components/PageEffects";
 
 const WA_DEFAULT =
-  "https://wa.me/34638054941?text=Hi%20HolaTandem%20%F0%9F%91%8B%20I%20saw%20your%20site";
+  "https://wa.me/34638054941?text=Hi%21%20I%27d%20like%20to%20see%20HolaTandem%20in%20action";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "HolaTandem",
   description:
-    "Done-for-you WhatsApp AI for Costa del Sol salons, clinics and estate agents. Answers leads in seconds, books appointments and follows up — in your customer's language.",
-  url: "https://holatandem.com",
-  telephone: "+34638054941",
-  email: "info@holatandem.com",
+    "Done-for-you WhatsApp AI automation for Costa del Sol salons, aesthetic clinics and estate agents. Answers leads instantly, books appointments and follows up in your customer's language.",
+  url: "https://holatandem.com/",
+  image: "https://holatandem.com/assets/og_image.png",
+  areaServed: "Costa del Sol, Málaga, Spain",
+  knowsLanguage: ["es", "en", "ru", "de", "fr", "ro"],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Fuengirola",
     addressRegion: "Málaga",
     addressCountry: "ES",
   },
-  areaServed: { "@type": "Place", name: "Costa del Sol" },
-  priceRange: "€€",
-  founder: { "@type": "Person", name: "Elena Ignat" },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "sales",
+    url: "https://wa.me/34638054941",
+  },
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Is this just a chatbot?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "No. Unlike a basic chatbot, it understands what each customer is asking and replies naturally in their language — and hands the conversation to you whenever a human touch is needed.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Does it use my existing WhatsApp number?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes — it works on your dedicated business WhatsApp number, the one your customers already message. No new number to learn or share.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What languages does it speak?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "It replies in your customer's language automatically — ideal for the Costa del Sol's mix of locals and international visitors.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Is my data safe?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. We use GDPR-compliant, EU-based tools and never sell your data. See our Privacy Policy for the details.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How long does setup take?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Days, not months. We handle the whole setup for you and you approve everything before it goes live.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Is there a long contract?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "No long lock-in — you can cancel anytime. We'd rather keep you because it works.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Will it replace my booking software?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "No — it works alongside the tools you already use. You don't have to change how you run your business.",
-      },
-    },
-  ],
-};
 
 export default function Home() {
   return (
@@ -93,10 +34,6 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <header>
         <div className="wrap nav">
@@ -155,7 +92,7 @@ export default function Home() {
             <a className="link" href="#pricing" data-en="Pricing" data-es="Precios">
               Pricing
             </a>
-            <a className="btn btn-navy" href="#demo" data-en="Book a free demo" data-es="Pide una demo">
+            <a className="btn btn-navy" href="https://calendly.com/elena-holatandem" target="_blank" rel="noopener" data-en="Book a free demo" data-es="Pide una demo">
               Book a free demo
             </a>
           </nav>
@@ -207,7 +144,7 @@ export default function Home() {
                     Try the live demo
                   </span>
                 </a>
-                <a className="btn btn-ghost" href="#demo" data-en="Book a free demo" data-es="Pide una demo">
+                <a className="btn btn-ghost" href="https://calendly.com/elena-holatandem" target="_blank" rel="noopener" data-en="Book a free demo" data-es="Pide una demo">
                   Book a free demo
                 </a>
               </div>
@@ -1055,7 +992,9 @@ export default function Home() {
                 </a>
                 <a
                   className="btn btn-navy"
-                  href="mailto:info@holatandem.com?subject=Demo%20request"
+                  href="https://calendly.com/elena-holatandem"
+                  target="_blank"
+                  rel="noopener"
                   data-en="Book a free demo"
                   data-es="Pide una demo"
                 >

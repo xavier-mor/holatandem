@@ -24,7 +24,7 @@ export function PageEffects() {
       { threshold: 0.12 }
     );
     document
-      .querySelectorAll(".step, .pain .row, .who .w, .price-card, .compare")
+      .querySelectorAll(".step, .pain .row, .who .w, .compare")
       .forEach((el) => {
         el.classList.add("reveal");
         io.observe(el);
