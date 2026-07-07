@@ -94,7 +94,10 @@ export const metadata: Metadata = {
   description:
     "Done-for-you WhatsApp AI for Costa del Sol salons, clinics and estate agents. Answers leads in seconds, books appointments and follows up — in your customer's language. Set up for you, end to end.",
   metadataBase: new URL("https://holatandem.com"),
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: { en: "/", es: "/", "x-default": "/" },
+  },
   icons: { icon: FAVICON },
   openGraph: {
     type: "website",
