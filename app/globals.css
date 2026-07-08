@@ -157,11 +157,17 @@ footer .fbot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 .reveal.in{opacity:1;transform:none}
 
 .founders-grid{display:flex;flex-direction:column;gap:24px;max-width:880px;margin:0 auto}
-.founder-card{display:flex;gap:28px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:22px;padding:36px;box-shadow:var(--shadow);text-align:left}
+.founder-card{display:flex;flex-direction:column;gap:20px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:36px;box-shadow:var(--shadow);text-align:left}
+.founder-header{display:flex;align-items:center;gap:22px}
 .founder-card .avatar{width:104px;height:104px;border-radius:50%;background:var(--grad);overflow:hidden;flex:none}
 .founder-card .avatar img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;display:block}
 .founder-card h3{font-family:var(--font-manrope),sans-serif;font-weight:800;color:var(--navy);font-size:1.15rem;margin-bottom:2px}
-.founder-card .role{color:var(--teal);font-weight:700;font-size:.9rem;margin-bottom:12px}
+.founder-card .role{color:var(--teal);font-weight:700;font-size:.9rem;margin-bottom:6px}
+.li-link{display:inline-flex;color:#0a66c2;transition:opacity .15s}
+.li-link:hover{opacity:.75}
+.social-links{display:flex;gap:14px;margin-top:14px}
+.social-links a{display:inline-flex;color:#8a9bb0;transition:color .15s}
+.social-links a:hover{color:#fff}
 .founder-card p{font-size:1rem;margin-bottom:14px}
 .founder-points{display:flex;flex-wrap:wrap;gap:8px 18px}
 .founder-points span{display:inline-flex;align-items:center;gap:7px;font-size:.92rem;font-weight:600;color:var(--navy)}
@@ -191,8 +197,8 @@ footer .fbot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 .prose-nav .brand{display:flex;align-items:center;gap:10px;font-family:var(--font-playfair),serif;font-weight:800;font-size:1.55rem}
 
 @media(max-width:860px){
-  .founder-card{flex-direction:column;text-align:center;padding:28px}
-  .founder-card .avatar{margin:0 auto}
+  .founder-card{text-align:center;padding:28px}
+  .founder-header{flex-direction:column;align-items:center}
   .founder-points{justify-content:center}
   .hero-grid{grid-template-columns:1fr;gap:40px}
   .hero{padding-top:40px}
