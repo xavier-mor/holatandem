@@ -36,22 +36,40 @@ const softwareSchema = {
   areaServed: { "@type": "Place", name: "Costa del Sol, Málaga, Spain" },
 };
 
-const personSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://holatandem.com/#elena-ignat",
-  name: "Elena Ignat",
-  jobTitle: "Founder",
-  image: "https://holatandem.com/assets/founder.jpg",
-  worksFor: { "@id": "https://holatandem.com/#organization" },
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Fuengirola",
-    addressRegion: "Málaga",
-    addressCountry: "ES",
+const personSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://holatandem.com/#elena-ignat",
+    name: "Elena Ignat",
+    jobTitle: "Founder",
+    image: "https://holatandem.com/assets/founder.jpg",
+    worksFor: { "@id": "https://holatandem.com/#organization" },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Fuengirola",
+      addressRegion: "Málaga",
+      addressCountry: "ES",
+    },
+    url: "https://holatandem.com/",
   },
-  url: "https://holatandem.com/",
-};
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://holatandem.com/#ana-maria",
+    name: "Ana-Maria",
+    jobTitle: "Co-founder",
+    image: "https://holatandem.com/assets/ana-maria.jpg",
+    worksFor: { "@id": "https://holatandem.com/#organization" },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Fuengirola",
+      addressRegion: "Málaga",
+      addressCountry: "ES",
+    },
+    url: "https://holatandem.com/",
+  },
+];
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -131,10 +149,13 @@ export default function HomeEn() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-      />
+      {personSchema.map((s) => (
+        <script
+          key={s["@id"]}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }}
+        />
+      ))}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -622,50 +643,92 @@ export default function HomeEn() {
         <section id="founder">
           <div className="wrap center">
             <p className="kicker">Who&apos;s behind it</p>
-            <h2 className="sec">A real person, not a faceless bot vendor</h2>
+            <h2 className="sec">Real people, not a faceless bot vendor</h2>
           </div>
           <div className="wrap">
-            <div className="founder-card">
-              <div className="avatar">
-                <Image
-                  src="/assets/founder2.jpg"
-                  alt="Elena Ignat, founder of HolaTandem"
-                  width={104}
-                  height={104}
-                  loading="lazy"
-                />
+            <div className="founders-grid">
+              <div className="founder-card">
+                <div className="avatar">
+                  <Image
+                    src="/assets/founder2.jpg"
+                    alt="Elena Ignat, co-founder of HolaTandem"
+                    width={104}
+                    height={104}
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <h3>Elena Ignat</h3>
+                  <div className="role">Founder · AI &amp; Process Transformation</div>
+                  <p>
+                    Elena Ignat is an engineer by training with over 15 years of
+                    experience leading transformation and process improvement across
+                    banking, fintech and B2B SaaS.
+                  </p>
+                  <p>
+                    A PMP-certified Project Manager and Lean Six Sigma Black Belt,
+                    she has spent her career redesigning how businesses work—not
+                    simply adding technology, but improving processes before
+                    automating them.
+                  </p>
+                  <p>
+                    She founded HolaTandem with one belief: the advantages of AI
+                    shouldn&apos;t be reserved for large organisations. Today, she
+                    helps small and medium-sized businesses adopt practical AI that
+                    saves time, improves customer service and creates opportunities
+                    for growth.
+                  </p>
+                  <div className="founder-points">
+                    <span>
+                      <span className="ck">✓</span> Based in Fuengirola
+                    </span>
+                    <span>
+                      <span className="ck">✓</span> Designed with you, end to end
+                    </span>
+                    <span>
+                      <span className="ck">✓</span> Work directly with the founder
+                    </span>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h3>Elena Ignat</h3>
-                <div className="role">Founder · Costa del Sol</div>
-                <p>
-                  Elena is an engineer by training with 15+ years&apos; experience
-                  leading transformation and process improvement across banking,
-                  fintech and B2B SaaS.
-                </p>
-                <p>
-                  A PMP-certified project manager and Lean Six Sigma Black Belt,
-                  she has spent her career redesigning how businesses work — not
-                  simply adding technology, but improving how work actually flows
-                  before automating it.
-                </p>
-                <p>
-                  She founded HolaTandem with a simple belief: the advantages of
-                  AI shouldn&apos;t be reserved for large organisations. Today,
-                  she helps small and medium-sized businesses put practical AI to
-                  work — saving time, improving customer service and creating new
-                  opportunities for growth.
-                </p>
-                <div className="founder-points">
-                  <span>
-                    <span className="ck">✓</span> Local, in Fuengirola
-                  </span>
-                  <span>
-                    <span className="ck">✓</span> Done for you, end to end
-                  </span>
-                  <span>
-                    <span className="ck">✓</span> You deal with me directly
-                  </span>
+
+              <div className="founder-card">
+                <div className="avatar">
+                  <Image
+                    src="/assets/ana-maria.jpg"
+                    alt="Ana-Maria, co-founder of HolaTandem"
+                    width={104}
+                    height={104}
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <h3>Ana-Maria</h3>
+                  <div className="role">Co-founder · Sales &amp; Growth</div>
+                  <p>
+                    With decades of experience in B2B sales, commercial strategy
+                    and marketing across corporate environments and startups,
+                    Ana-Maria has built her career helping businesses grow through
+                    strong relationships and practical solutions.
+                  </p>
+                  <p>
+                    She believes technology only creates value when it solves real
+                    business problems and is easy for people to adopt. Her ability
+                    to connect with people from all backgrounds helps every
+                    HolaTandem client feel understood, supported and confident
+                    throughout their AI journey.
+                  </p>
+                  <div className="founder-points">
+                    <span>
+                      <span className="ck">✓</span> B2B sales expert
+                    </span>
+                    <span>
+                      <span className="ck">✓</span> Long-term client relationships
+                    </span>
+                    <span>
+                      <span className="ck">✓</span> Practical business solutions
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>

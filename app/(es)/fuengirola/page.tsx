@@ -1,75 +1,104 @@
+import type { Metadata } from "next";
 import { HeaderControls } from "@/app/components/HeaderControls";
 import { PageEffects } from "@/app/components/PageEffects";
-import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Asistente de WhatsApp para negocios en Fuengirola | HolaTandem",
+  description:
+    "Automatiza WhatsApp para tu negocio en Fuengirola. Responde al instante, agenda citas y hace seguimiento en el idioma de tu cliente — en español, inglés, ruso y más. Lo configuramos todo.",
+  metadataBase: new URL("https://holatandem.com"),
+  alternates: {
+    canonical: "/fuengirola",
+    languages: { es: "/fuengirola", en: "/en", "x-default": "/fuengirola" },
+  },
+  openGraph: {
+    type: "website",
+    siteName: "HolaTandem",
+    url: "https://holatandem.com/fuengirola",
+    title: "Asistente de WhatsApp para negocios en Fuengirola | HolaTandem",
+    description:
+      "Automatiza WhatsApp para tu negocio en Fuengirola. Responde al instante, agenda citas y hace seguimiento en el idioma de tu cliente. Lo configuramos todo.",
+    images: [
+      {
+        url: "https://holatandem.com/assets/og_image.png",
+        width: 1200,
+        height: 630,
+        alt: "HolaTandem — Asistente de WhatsApp para negocios en Fuengirola y Costa del Sol",
+      },
+    ],
+    locale: "es_ES",
+  },
+};
 
 const WA_ES =
   "https://wa.me/34638054941?text=%C2%A1Hola%21%20Quiero%20ver%20HolaTandem%20en%20acci%C3%B3n";
 
-const softwareSchema = {
+const breadcrumbSchema = {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "@id": "https://holatandem.com/#app",
-  name: "HolaTandem — Asistente de WhatsApp con IA",
-  description:
-    "Asistente de WhatsApp con IA, hecho para ti, para negocios locales de la Costa del Sol. Responde leads al instante, agenda citas y hace seguimiento en el idioma del cliente, 24/7.",
-  url: "https://holatandem.com/",
-  image: "https://holatandem.com/assets/og_image.png",
-  applicationCategory: "BusinessApplication",
-  operatingSystem: "WhatsApp Business Platform",
-  inLanguage: ["es", "en", "ru", "de", "fr", "ro"],
-  featureList: [
-    "Respuestas instantáneas por WhatsApp en cualquier idioma",
-    "Agenda de citas automática",
-    "Calificación de leads",
-    "Recordatorios de citas y reducción de ausencias",
-    "Traspaso a persona humana bajo demanda",
-    "Configuración y gestión hecha para ti",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Inicio",
+      item: "https://holatandem.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Asistente de WhatsApp en Fuengirola",
+      item: "https://holatandem.com/fuengirola",
+    },
   ],
-  offers: {
-    "@type": "Offer",
-    url: "https://holatandem.com/#pricing",
-    priceCurrency: "EUR",
-    availability: "https://schema.org/InStock",
-    seller: { "@id": "https://holatandem.com/#organization" },
-  },
-  provider: { "@id": "https://holatandem.com/#organization" },
-  areaServed: { "@type": "Place", name: "Costa del Sol, Málaga, Spain" },
 };
 
-const personSchema = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": "https://holatandem.com/#elena-ignat",
-    name: "Elena Ignat",
-    jobTitle: "Fundadora",
-    image: "https://holatandem.com/assets/founder.jpg",
-    worksFor: { "@id": "https://holatandem.com/#organization" },
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Fuengirola",
-      addressRegion: "Málaga",
-      addressCountry: "ES",
-    },
-    url: "https://holatandem.com/",
+const localServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://holatandem.com/fuengirola#service",
+  name: "Asistente de WhatsApp con IA para negocios en Fuengirola",
+  description:
+    "Servicio de asistente de WhatsApp con IA, gestionado para pequeños negocios de Fuengirola y la Costa del Sol. Responde mensajes al instante, agenda citas y hace seguimiento en el idioma del cliente — 24/7.",
+  url: "https://holatandem.com/fuengirola",
+  provider: { "@id": "https://holatandem.com/#organization" },
+  areaServed: [
+    { "@type": "City", name: "Fuengirola", containedInPlace: { "@type": "AdministrativeArea", name: "Málaga" } },
+    { "@type": "City", name: "Mijas", containedInPlace: { "@type": "AdministrativeArea", name: "Málaga" } },
+    { "@type": "City", name: "Benalmádena", containedInPlace: { "@type": "AdministrativeArea", name: "Málaga" } },
+    { "@type": "City", name: "Torremolinos", containedInPlace: { "@type": "AdministrativeArea", name: "Málaga" } },
+    { "@type": "City", name: "Marbella", containedInPlace: { "@type": "AdministrativeArea", name: "Málaga" } },
+    { "@type": "City", name: "Estepona", containedInPlace: { "@type": "AdministrativeArea", name: "Málaga" } },
+    { "@type": "City", name: "Málaga", containedInPlace: { "@type": "AdministrativeArea", name: "Málaga" } },
+  ],
+  serviceType: "WhatsApp AI Assistant",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Planes de asistente de WhatsApp",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Asistente de WhatsApp para salones de belleza en Fuengirola",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Asistente de WhatsApp para clínicas estéticas en Fuengirola",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Asistente de WhatsApp para inmobiliarias en la Costa del Sol",
+        },
+      },
+    ],
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": "https://holatandem.com/#ana-maria",
-    name: "Ana-Maria",
-    jobTitle: "Co-fundadora",
-    image: "https://holatandem.com/assets/ana-maria.jpg",
-    worksFor: { "@id": "https://holatandem.com/#organization" },
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Fuengirola",
-      addressRegion: "Málaga",
-      addressCountry: "ES",
-    },
-    url: "https://holatandem.com/",
-  },
-];
+};
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -77,89 +106,71 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "¿Qué es HolaTandem?",
+      name: "¿Qué es un asistente de WhatsApp para negocios en Fuengirola?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "HolaTandem es un servicio de asistente de WhatsApp con IA, gestionado para pequeños negocios de la Costa del Sol, España. Fundado por Elena Ignat y con sede en Fuengirola, gestiona las consultas entrantes de WhatsApp, agenda citas y envía recordatorios automáticamente — en español, inglés, ruso, alemán, francés y rumano — para peluquerías, salones de belleza, clínicas estéticas e inmobiliarias.",
+        text: "Es un asistente con IA que se conecta a tu WhatsApp Business actual y responde a tus clientes al instante — en español, inglés, ruso, alemán, francés o rumano. Ideal para los negocios de Fuengirola y Costa del Sol que atienden a locales e internacionales. Nosotros lo configuramos y gestionamos todo por ti.",
       },
     },
     {
       "@type": "Question",
-      name: "¿Es solo un chatbot?",
+      name: "¿Funciona para negocios en Fuengirola, Mijas y Benalmádena?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. A diferencia de un chatbot básico, entiende lo que pregunta cada cliente y responde con naturalidad en su idioma — y te pasa la conversación cuando hace falta una persona.",
+        text: "Sí. Trabajamos con negocios de toda la Costa del Sol: Fuengirola, Mijas, Benalmádena, Torremolinos, Marbella y Estepona. Al estar basados en Fuengirola, conocemos el mercado local — la mezcla de clientes locales, expats y turistas — y configuramos el asistente para ese contexto.",
       },
     },
     {
       "@type": "Question",
-      name: "¿Usa mi número de WhatsApp actual?",
+      name: "¿Habla inglés con los clientes internacionales?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sí — funciona en tu número de WhatsApp Business, el que tus clientes ya usan. Sin número nuevo que aprender ni repartir.",
+        text: "Sí, de forma automática. El asistente detecta el idioma del cliente y responde en el mismo — español, inglés, ruso, alemán, francés o rumano. Perfecto para la clientela internacional de Fuengirola y la Costa del Sol.",
       },
     },
     {
       "@type": "Question",
-      name: "¿Qué idiomas habla?",
+      name: "¿Tengo que cambiar mi número de WhatsApp?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Responde automáticamente en el idioma de tu cliente — ideal para la mezcla de locales e internacionales de la Costa del Sol. Idiomas admitidos: español, inglés, ruso, alemán, francés y rumano.",
+        text: "No. El asistente funciona en tu número de WhatsApp Business actual, el que tus clientes ya usan. Sin número nuevo que aprender ni repartir.",
       },
     },
     {
       "@type": "Question",
-      name: "¿Están seguros mis datos?",
+      name: "¿Cuánto cuesta el asistente de WhatsApp para mi negocio en Fuengirola?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sí. Usamos herramientas conformes al RGPD y alojadas en la UE, y nunca vendemos tus datos. Consulta nuestra Política de Privacidad para más detalles.",
+        text: "El precio depende del tamaño de tu negocio y el volumen de mensajes. Te lo explicamos en una demo gratuita y sin compromiso. Sin contratos largos — puedes cancelar cuando quieras.",
       },
     },
     {
       "@type": "Question",
-      name: "¿Cuánto tarda la configuración?",
+      name: "¿Cuánto tarda en ponerse en marcha?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Días, no meses. Nos encargamos de toda la configuración y tú apruebas todo antes de activarlo.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "¿Hay un contrato largo?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Sin permanencia larga — puedes cancelar cuando quieras. Preferimos que te quedes porque funciona.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "¿Sustituye a mi software de reservas?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "No — funciona junto a las herramientas que ya usas. No tienes que cambiar cómo llevas tu negocio.",
+        text: "En días, no semanas. Una llamada corta para conocer tu negocio, y nos encargamos de toda la configuración. Tú apruebas todo antes de activarlo.",
       },
     },
   ],
 };
 
-export default function HomeEs() {
+export default function FuengirolaPage() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      {personSchema.map((s) => (
-        <script
-          key={s["@id"]}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }}
-        />
-      ))}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localServiceSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+
       <header>
         <div className="wrap nav">
           <a className="brand" href="/" aria-label="HolaTandem inicio">
@@ -208,9 +219,9 @@ export default function HomeEs() {
             </span>
           </a>
           <nav className="nav-links" id="navlinks">
-            <a className="link" href="#how">Cómo funciona</a>
-            <a className="link" href="#why">Por qué nosotros</a>
-            <a className="link" href="#pricing">Precios</a>
+            <a className="link" href="/#how">Cómo funciona</a>
+            <a className="link" href="/#why">Por qué nosotros</a>
+            <a className="link" href="/#pricing">Precios</a>
             <a
               className="btn btn-navy"
               href="https://calendly.com/elena-holatandem"
@@ -225,17 +236,30 @@ export default function HomeEs() {
       </header>
 
       <main id="top">
+        {/* Breadcrumb */}
+        <div className="wrap" style={{ paddingTop: "16px", paddingBottom: "0" }}>
+          <nav aria-label="breadcrumb" style={{ fontSize: "13px", color: "#6b7280" }}>
+            <a href="/" style={{ color: "#6b7280", textDecoration: "none" }}>Inicio</a>
+            <span style={{ margin: "0 6px" }}>›</span>
+            <span>Asistente de WhatsApp en Fuengirola</span>
+          </nav>
+        </div>
+
+        {/* Hero */}
         <section className="hero">
           <div className="wrap hero-grid">
             <div>
               <h1>
-                <span>No pierdas otro cliente de </span>
+                <span>Asistente de </span>
                 <span className="accent">WhatsApp</span>
-                <span>.</span>
+                <span> para negocios en Fuengirola</span>
               </h1>
               <p className="sub">
-                IA que responde, agenda citas y hace seguimiento — mientras tú
-                te centras en tu negocio. Lo configuramos todo por ti.
+                Fuengirola tiene clientes de docenas de países —
+                y todos escriben por WhatsApp. Nuestro asistente responde
+                en su idioma al instante, agenda citas y hace seguimiento.
+                Tú solo intervienes cuando quieres.{" "}
+                <b>Lo configuramos y gestionamos todo.</b>
               </p>
               <div className="hero-cta">
                 <a
@@ -261,7 +285,7 @@ export default function HomeEs() {
                   target="_blank"
                   rel="noopener"
                 >
-                  Pide una demo
+                  Pide una demo gratuita
                 </a>
               </div>
               <p className="hero-note">
@@ -286,14 +310,14 @@ export default function HomeEs() {
                       aria-hidden="true"
                     >
                       <defs>
-                        <clipPath id="klA" clipPathUnits="userSpaceOnUse">
+                        <clipPath id="klB" clipPathUnits="userSpaceOnUse">
                           <path
                             d="M0 0H1860V620H0Z M199 278 a149 149 0 1 0 298 0 a149 149 0 1 0 -298 0 Z"
                             clipRule="evenodd"
                           />
                         </clipPath>
                         <linearGradient
-                          id="gA"
+                          id="gB"
                           x1="219"
                           y1="156.02"
                           x2="481.3"
@@ -304,7 +328,7 @@ export default function HomeEs() {
                           <stop offset="1" stopColor="#2DA5AE" />
                         </linearGradient>
                       </defs>
-                      <g clipPath="url(#klA)">
+                      <g clipPath="url(#klB)">
                         <path
                           d="M200.08 355.54C181.733 394.527 171.413 422.62 169.12 439.82C202.373 423.767 232.187 402.553 258.56 376.18L200.08 355.54Z"
                           fill="#0D2B45"
@@ -316,11 +340,11 @@ export default function HomeEs() {
                       </g>
                       <path
                         d="M348 388.22C354.88 424.913 369.213 451.287 391 467.34C397.88 437.527 404.187 411.153 409.92 388.22H348Z"
-                        fill="url(#gA)"
+                        fill="url(#gB)"
                       />
                       <path
                         d="M348 417.46C424.944 417.46 487.32 355.084 487.32 278.14C487.32 201.196 424.944 138.82 348 138.82C271.056 138.82 208.68 201.196 208.68 278.14C208.68 355.084 271.056 417.46 348 417.46Z"
-                        fill="url(#gA)"
+                        fill="url(#gB)"
                       />
                       <circle cx="440.29" cy="118.24" r="34.92" fill="#E26031" />
                     </svg>
@@ -332,17 +356,15 @@ export default function HomeEs() {
                 </div>
                 <div className="chat-body" id="chatBody">
                   <div className="bub in">
-                    ¡Hola! ¿Tenéis hueco el sábado para mechas? 💇‍♀️
+                    Hi! Do you have availability for a facial on Friday?
                   </div>
                   <div className="bub out">
-                    ¡Hola Marta! Sí — el sábado tenemos libre a las 11:00 o
-                    16:30. ¿Cuál te viene mejor?{" "}
+                    Hello! Yes — Friday we have 10:00 or 15:30 free. Which works best for you?{" "}
                     <span className="tick">✓✓</span>
                   </div>
-                  <div className="bub in">A las 11:00 por favor 🙌</div>
+                  <div className="bub in">15:30 please! 🙌</div>
                   <div className="bub out">
-                    Reservado para el sábado a las 11:00 ✨ Te enviaré un
-                    recordatorio el día antes. ¡Hasta entonces!{" "}
+                    Booked for Friday at 15:30 ✨ I&apos;ll send you a reminder the day before. See you then!{" "}
                     <span className="tick">✓✓</span>
                   </div>
                   <div className="typing">
@@ -356,6 +378,7 @@ export default function HomeEs() {
           </div>
         </section>
 
+        {/* Feature chips */}
         <section className="features">
           <div className="wrap feat-grid">
             <div className="feat-chip">
@@ -423,15 +446,18 @@ export default function HomeEs() {
           </div>
         </section>
 
-        <section className="dark" id="problem">
+        {/* Local context */}
+        <section className="dark" id="local">
           <div className="wrap center">
-            <p className="kicker">La fuga invisible</p>
-            <h2 className="sec">Cada respuesta tardía es una reserva perdida</h2>
+            <p className="kicker">El mercado de Fuengirola</p>
+            <h2 className="sec">Un negocio en Fuengirola atiende a clientes de toda Europa — a la vez</h2>
             <p className="lead">
-              Hoy casi todos escriben por WhatsApp — y gana el primero en
-              responder. Cuando estás con un cliente, de vacaciones o son las 9
-              de la noche, esos mensajes esperan. Y el cliente que espera, se va
-              a otro sitio.
+              Fuengirola tiene una de las comunidades de residentes internacionales más grandes
+              de la Costa del Sol — británicos, escandinavos, centroeuropeos y comunidades rusas
+              que llevan décadas aquí, más una oleada de turistas de junio a septiembre.
+              Para un negocio local, eso significa mensajes en cuatro idiomas distintos,
+              el mismo día, muchos de ellos fuera del horario de apertura.
+              El negocio que responde primero — en su idioma — se lleva la reserva.
             </p>
           </div>
           <div className="wrap">
@@ -439,39 +465,40 @@ export default function HomeEs() {
               <div className="row">
                 <span className="x">✕</span>
                 <div>
-                  <b>Clientes contestados tarde</b>
+                  <b>Un expat escribe en inglés un domingo — y no recibe respuesta</b>
                   <p>
-                    Las respuestas llegan horas después, cuando ya reservaron
-                    con la competencia.
+                    Para el lunes ya reservó en otro sitio. Sin asistente, ese cliente
+                    no espera hasta que abras.
                   </p>
                 </div>
               </div>
               <div className="row">
                 <span className="x">✕</span>
                 <div>
-                  <b>Se pierden antes de reservar</b>
+                  <b>En agosto los mensajes se triplican pero el equipo no</b>
                   <p>
-                    Preguntan algo, no reciben respuesta y desaparecen sin más.
+                    La temporada alta es exactamente cuando más te cuesta contestar a tiempo
+                    — y cuando más caro te sale perder una reserva.
                   </p>
                 </div>
               </div>
               <div className="row">
                 <span className="x">✕</span>
                 <div>
-                  <b>El seguimiento manual te roba el día</b>
+                  <b>Una clienta rusa pregunta algo sencillo — nadie en el equipo habla ruso</b>
                   <p>
-                    Perseguir, recordar y volver a citar a mano — mensaje a
-                    mensaje.
+                    No hace falta que tú hables todos los idiomas. Tu asistente los habla por ti,
+                    de forma automática, sin que tengas que hacer nada.
                   </p>
                 </div>
               </div>
               <div className="row">
                 <span className="x">✕</span>
                 <div>
-                  <b>Ausencias que no viste venir</b>
+                  <b>Un cliente se cancela a última hora porque no recibió recordatorio</b>
                   <p>
-                    Sin recordatorios a tiempo, se acumulan los huecos vacíos y
-                    los ingresos perdidos.
+                    Un hueco vacío en la agenda es ingreso directo perdido. Los recordatorios
+                    automáticos reducen las ausencias sin que tengas que perseguir a nadie.
                   </p>
                 </div>
               </div>
@@ -479,120 +506,14 @@ export default function HomeEs() {
           </div>
         </section>
 
-        <section id="how">
-          <div className="wrap center">
-            <p className="kicker">Cómo funciona</p>
-            <h2 className="sec">En tu WhatsApp en días, no en meses</h2>
-            <p className="lead">
-              Sin app que aprender, sin número nuevo que repartir. Funciona en
-              el WhatsApp al que tus clientes ya escriben.
-            </p>
-          </div>
-          <div className="wrap">
-            <div className="steps">
-              <div className="step">
-                <div className="n"></div>
-                <h3>Conocemos tu negocio</h3>
-                <p>
-                  Una llamada corta sobre tus servicios, precios, horarios y las
-                  preguntas más frecuentes. Nos encargamos de toda la
-                  configuración.
-                </p>
-              </div>
-              <div className="step">
-                <div className="n"></div>
-                <h3>Lo creamos y conectamos</h3>
-                <p>
-                  Tu asistente se entrena con tus datos y se conecta a tu
-                  WhatsApp — todo hecho por ti, de principio a fin.
-                </p>
-              </div>
-              <div className="step">
-                <div className="n"></div>
-                <h3>Responde y agenda 24/7</h3>
-                <p>
-                  Los clientes reciben respuestas al instante y reservan solos.
-                  Tú intervienes solo cuando quieres — nosotros lo mantenemos.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="dark" id="why">
-          <div className="wrap center">
-            <p className="kicker">Por qué HolaTandem</p>
-            <h2 className="sec">
-              No es otro chatbot. Es un asistente hecho para ti.
-            </h2>
-            <p className="lead">
-              Los bots genéricos te dan un panel y te desean suerte. Nosotros
-              creamos, gestionamos y afinamos el tuyo — adaptado a la Costa del
-              Sol y a tu sector.
-            </p>
-          </div>
-          <div className="wrap">
-            <div className="compare">
-              <div className="crow chead">
-                <div>Característica</div>
-                <div className="ht">HolaTandem</div>
-                <div>Chatbot genérico</div>
-              </div>
-              <div className="crow">
-                <div className="feat">Habla el idioma de tu cliente</div>
-                <div className="col-ht">
-                  <span className="yes">✓ Automáticamente</span>
-                </div>
-                <div className="no">Normalmente solo uno</div>
-              </div>
-              <div className="crow">
-                <div className="feat">Configurado y gestionado por ti</div>
-                <div className="col-ht">
-                  <span className="yes">✓ Totalmente gestionado</span>
-                </div>
-                <div className="no">Panel hazlo-tú-mismo</div>
-              </div>
-              <div className="crow">
-                <div className="feat">Soporte local en la Costa del Sol</div>
-                <div className="col-ht">
-                  <span className="yes">✓ En Fuengirola</span>
-                </div>
-                <div className="no">Sin cara / en el extranjero</div>
-              </div>
-              <div className="crow">
-                <div className="feat">
-                  Adaptado a salones, clínicas e inmobiliarias
-                </div>
-                <div className="col-ht">
-                  <span className="yes">✓ Específico por sector</span>
-                </div>
-                <div className="no">Igual para todos</div>
-              </div>
-              <div className="crow">
-                <div className="feat">Funciona en tu número actual</div>
-                <div className="col-ht">
-                  <span className="yes">✓ Mantén tu número</span>
-                </div>
-                <div className="no">A menudo un número nuevo</div>
-              </div>
-              <div className="crow">
-                <div className="feat">Pasa a una persona real</div>
-                <div className="col-ht">
-                  <span className="yes">✓ Cuando quieras</span>
-                </div>
-                <div className="no">A menudo sin salida</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
+        {/* Who it's for */}
         <section id="who">
           <div className="wrap center">
             <p className="kicker">Pensado para</p>
-            <h2 className="sec">Hecho para negocios de la Costa del Sol</h2>
+            <h2 className="sec">Los sectores que más WhatsApp reciben en Fuengirola</h2>
             <p className="lead">
-              Si tus clientes reservan por WhatsApp, tu asistente se paga solo
-              con las reservas que recuperas.
+              En la Costa del Sol, los clientes no llaman — escriben.
+              Estos son los negocios donde el asistente marca más la diferencia.
             </p>
           </div>
           <div className="wrap">
@@ -607,10 +528,12 @@ export default function HomeEs() {
                     <line x1="8.12" y1="8.12" x2="12" y2="12" />
                   </svg>
                 </div>
-                <h3>Salones de belleza</h3>
+                <h3>Salones de belleza en Fuengirola</h3>
                 <p>
-                  Llena la agenda, reduce ausencias con recordatorios y vuelve a
-                  citar a tus clientes automáticamente.
+                  Una clienta habitual escribe en español. La de al lado escribe en inglés.
+                  La siguiente en ruso. El asistente responde a las tres al instante,
+                  llena huecos de última hora y manda recordatorios para que nadie
+                  se olvide de su cita — sin que tú toques el teléfono.
                 </p>
               </div>
               <div className="w">
@@ -620,10 +543,12 @@ export default function HomeEs() {
                     <path d="M18.5 14l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z" />
                   </svg>
                 </div>
-                <h3>Clínicas estéticas</h3>
+                <h3>Clínicas estéticas en la Costa del Sol</h3>
                 <p>
-                  Responde dudas sobre tratamientos, califica consultas y agenda
-                  valoraciones a cualquier hora.
+                  La Costa del Sol atrae a muchos clientes que combinan sus vacaciones
+                  con tratamientos estéticos. Suelen preguntar precios y disponibilidad
+                  desde el hotel, de noche o el fin de semana. El asistente responde,
+                  califica si la consulta encaja y agenda la valoración — sin esperas.
                 </p>
               </div>
               <div className="w">
@@ -634,209 +559,129 @@ export default function HomeEs() {
                     <path d="M9.5 21v-6h5v6" />
                   </svg>
                 </div>
-                <h3>Inmobiliarias</h3>
+                <h3>Inmobiliarias en Fuengirola y Marbella</h3>
                 <p>
-                  Califica compradores e inquilinos al instante, recoge sus
-                  datos y pásate solo los contactos serios.
+                  Compradores belgas, británicos y alemanes buscan propiedades en la Costa
+                  del Sol y preguntan por WhatsApp antes de llamar. El asistente
+                  recoge presupuesto, zona y tipo de propiedad en su idioma — y tú
+                  recibes solo los leads que ya están listos para hablar.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="founder">
+        {/* Coverage area */}
+        <section style={{ background: "#fbf9f6" }} id="coverage">
           <div className="wrap center">
-            <p className="kicker">Quién hay detrás</p>
-            <h2 className="sec">
-              Personas reales, no proveedores de bots sin cara
-            </h2>
+            <p className="kicker">Zona de cobertura</p>
+            <h2 className="sec">Basados en Fuengirola, trabajamos en toda la Costa del Sol</h2>
+            <p className="lead">
+              Atendemos a negocios de toda la franja costera — desde Estepona hasta Torremolinos.
+              Si tu negocio está en la Costa del Sol, podemos ayudarte.
+            </p>
           </div>
           <div className="wrap">
-            <div className="founders-grid">
-              <div className="founder-card">
-                <div className="avatar">
-                  <Image
-                    src="/assets/founder2.jpg"
-                    alt="Elena Ignat, co-fundadora de HolaTandem"
-                    width={104}
-                    height={104}
-                    loading="lazy"
-                  />
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+              gap: "12px",
+              maxWidth: "700px",
+              margin: "0 auto",
+              textAlign: "center",
+            }}>
+              {[
+                { town: "Fuengirola", note: "Sede central" },
+                { town: "Mijas", note: "Costa y pueblo" },
+                { town: "Benalmádena", note: "" },
+                { town: "Torremolinos", note: "" },
+                { town: "Marbella", note: "" },
+                { town: "Estepona", note: "" },
+                { town: "Málaga", note: "" },
+              ].map(({ town, note }) => (
+                <div
+                  key={town}
+                  style={{
+                    background: "#fff",
+                    border: "1px solid #e5e7eb",
+                    borderRadius: "10px",
+                    padding: "14px 10px",
+                  }}
+                >
+                  <div style={{ fontWeight: 700, color: "#0D2B45", fontSize: "15px" }}>{town}</div>
+                  {note && <div style={{ fontSize: "12px", color: "#2C94A0", marginTop: "3px" }}>{note}</div>}
                 </div>
-                <div>
-                  <h3>Elena Ignat</h3>
-                  <div className="role">Fundadora · IA y Transformación de Procesos</div>
-                  <p>
-                    Elena Ignat es ingeniera de formación y cuenta con más de 15
-                    años de experiencia liderando proyectos de transformación y
-                    mejora de procesos en banca, fintech y empresas SaaS B2B.
-                  </p>
-                  <p>
-                    Como directora de proyectos certificada PMP y Lean Six Sigma
-                    Black Belt, ha dedicado su carrera a rediseñar la forma en que
-                    trabajan las empresas: no se trata solo de incorporar
-                    tecnología, sino de mejorar los procesos antes de
-                    automatizarlos.
-                  </p>
-                  <p>
-                    Fundó HolaTandem con una convicción clara: las ventajas de la
-                    IA no deberían estar reservadas para las grandes
-                    organizaciones. Hoy ayuda a pequeñas y medianas empresas a
-                    incorporar una IA práctica que ahorra tiempo, mejora la
-                    atención al cliente y crea nuevas oportunidades de crecimiento.
-                  </p>
-                  <div className="founder-points">
-                    <span>
-                      <span className="ck">✓</span> En Fuengirola
-                    </span>
-                    <span>
-                      <span className="ck">✓</span> Diseñado contigo, de principio a fin
-                    </span>
-                    <span>
-                      <span className="ck">✓</span> Tratas directamente con la fundadora
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="founder-card">
-                <div className="avatar">
-                  <Image
-                    src="/assets/ana-maria.jpg"
-                    alt="Ana-Maria, co-fundadora de HolaTandem"
-                    width={104}
-                    height={104}
-                    loading="lazy"
-                  />
-                </div>
-                <div>
-                  <h3>Ana-Maria</h3>
-                  <div className="role">Cofundadora · Ventas y Crecimiento</div>
-                  <p>
-                    Con décadas de experiencia en ventas B2B, estrategia comercial
-                    y marketing en grandes empresas y startups, Ana-Maria ha
-                    desarrollado su carrera ayudando a las empresas a crecer
-                    mediante relaciones sólidas y soluciones prácticas.
-                  </p>
-                  <p>
-                    Cree que la tecnología solo aporta valor cuando resuelve
-                    problemas reales y resulta fácil de adoptar. Su capacidad para
-                    conectar con personas de perfiles muy diferentes hace que cada
-                    cliente de HolaTandem se sienta comprendido, acompañado y
-                    seguro durante todo su proceso de adopción de la IA.
-                  </p>
-                  <div className="founder-points">
-                    <span>
-                      <span className="ck">✓</span> Experta en ventas B2B
-                    </span>
-                    <span>
-                      <span className="ck">✓</span> Relaciones duraderas con los clientes
-                    </span>
-                    <span>
-                      <span className="ck">✓</span> Soluciones prácticas para empresas
-                    </span>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
 
-        <section id="pricing" style={{ background: "#fbf9f6" }}>
-          <div className="wrap center">
-            <p className="kicker">Planes</p>
-            <h2 className="sec">Tu plan y precio, en una demo gratuita</h2>
-            <p className="lead">
-              Cuéntanos sobre tu negocio en una demo gratuita y te recomendamos
-              el plan y el precio que encajan.
-            </p>
-            <div style={{ marginTop: "30px" }}>
-              <a
-                className="btn btn-navy"
-                href="https://calendly.com/elena-holatandem"
-                target="_blank"
-                rel="noopener"
-              >
-                Pide una demo
-              </a>
-            </div>
-            <p className="compare-note">
-              Sin contratos largos, y tú apruebas todo antes de activarlo.
-            </p>
-          </div>
-        </section>
-
+        {/* FAQ */}
         <section id="faq" style={{ background: "#fbf9f6" }}>
           <div className="wrap center">
             <p className="kicker">Preguntas</p>
-            <h2 className="sec">Preguntas, respondidas</h2>
+            <h2 className="sec">Preguntas frecuentes sobre el asistente de WhatsApp en Fuengirola</h2>
           </div>
           <div className="wrap">
             <div className="faq-list">
               <details>
-                <summary>¿Es solo un chatbot?</summary>
+                <summary>¿Qué es un asistente de WhatsApp para negocios en Fuengirola?</summary>
                 <div className="faq-a">
-                  No. A diferencia de un chatbot básico, entiende lo que
-                  pregunta cada cliente y responde con naturalidad en su idioma
-                  — y te pasa la conversación cuando hace falta una persona.
+                  Es un asistente con IA que se conecta a tu WhatsApp Business y responde
+                  a tus clientes al instante — en español, inglés, ruso, alemán, francés o rumano.
+                  Ideal para los negocios de Fuengirola y Costa del Sol que atienden a locales
+                  e internacionales. Nosotros lo configuramos y gestionamos todo por ti.
                 </div>
               </details>
               <details>
-                <summary>¿Usa mi número de WhatsApp actual?</summary>
+                <summary>¿Funciona para negocios en Mijas, Benalmádena y Marbella también?</summary>
                 <div className="faq-a">
-                  Sí — funciona en tu número de WhatsApp Business, el que tus
-                  clientes ya usan. Sin número nuevo que aprender ni repartir.
+                  Sí. Trabajamos con negocios de toda la Costa del Sol: Fuengirola, Mijas,
+                  Benalmádena, Torremolinos, Marbella y Estepona. Al estar basados en Fuengirola,
+                  conocemos el mercado local.
                 </div>
               </details>
               <details>
-                <summary>¿Qué idiomas habla?</summary>
+                <summary>¿Habla inglés con los clientes internacionales?</summary>
                 <div className="faq-a">
-                  Responde automáticamente en el idioma de tu cliente — ideal
-                  para la mezcla de locales e internacionales de la Costa del
-                  Sol.
+                  Sí, de forma automática. El asistente detecta el idioma del cliente y responde
+                  en el mismo — español, inglés, ruso, alemán, francés o rumano. Perfecto para
+                  la clientela internacional de Fuengirola y la Costa del Sol.
                 </div>
               </details>
               <details>
-                <summary>¿Están seguros mis datos?</summary>
+                <summary>¿Tengo que cambiar mi número de WhatsApp?</summary>
                 <div className="faq-a">
-                  Sí. Usamos herramientas conformes al RGPD y alojadas en la
-                  UE, y nunca vendemos tus datos. Consulta nuestra{" "}
-                  <a href="/privacy">Política de Privacidad</a> para más
-                  detalles.
+                  No. El asistente funciona en tu número de WhatsApp Business actual, el que
+                  tus clientes ya usan. Sin número nuevo que aprender ni repartir.
                 </div>
               </details>
               <details>
-                <summary>¿Cuánto tarda la configuración?</summary>
+                <summary>¿Cuánto cuesta el asistente de WhatsApp para mi negocio en Fuengirola?</summary>
                 <div className="faq-a">
-                  Días, no meses. Nos encargamos de toda la configuración y tú
-                  apruebas todo antes de activarlo.
+                  El precio depende del tamaño de tu negocio y el volumen de mensajes. Te lo
+                  explicamos en una demo gratuita y sin compromiso. Sin contratos largos.
                 </div>
               </details>
               <details>
-                <summary>¿Hay un contrato largo?</summary>
+                <summary>¿Cuánto tarda en ponerse en marcha?</summary>
                 <div className="faq-a">
-                  Sin permanencia larga — puedes cancelar cuando quieras.
-                  Preferimos que te quedes porque funciona.
-                </div>
-              </details>
-              <details>
-                <summary>¿Sustituye a mi software de reservas?</summary>
-                <div className="faq-a">
-                  No — funciona junto a las herramientas que ya usas. No tienes
-                  que cambiar cómo llevas tu negocio.
+                  En días, no semanas. Una llamada corta para conocer tu negocio, y nos encargamos
+                  de toda la configuración. Tú apruebas todo antes de activarlo.
                 </div>
               </details>
             </div>
           </div>
         </section>
 
+        {/* CTA */}
         <section id="demo">
           <div className="wrap">
             <div className="cta-band">
-              <h2>Pide una demo en vivo</h2>
+              <h2>Pide una demo gratuita para tu negocio en Fuengirola</h2>
               <p>
-                Descubre cómo funciona HolaTandem para un negocio como el tuyo
-                — o escribe a nuestro asistente en WhatsApp ahora mismo.
+                Cuéntanos cómo funciona tu negocio y te mostramos cómo el asistente
+                de WhatsApp puede recuperar reservas perdidas — o escríbenos ahora mismo.
               </p>
               <div
                 style={{
@@ -861,7 +706,7 @@ export default function HomeEs() {
                   >
                     <path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.821 11.821 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.043zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.15-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
                   </svg>
-                  <span>Prueba la demo</span>
+                  <span>Escríbenos por WhatsApp</span>
                 </a>
                 <a
                   className="btn btn-navy"
@@ -869,7 +714,7 @@ export default function HomeEs() {
                   target="_blank"
                   rel="noopener"
                 >
-                  Pide una demo
+                  Pide una demo gratuita
                 </a>
               </div>
             </div>
@@ -891,7 +736,7 @@ export default function HomeEs() {
                 >
                   <defs>
                     <linearGradient
-                      id="lkf0"
+                      id="lkf1"
                       x1="219"
                       y1="156.02"
                       x2="481.3"
@@ -913,11 +758,11 @@ export default function HomeEs() {
                   <circle cx="348" cy="278" r="149" fill="#0D2B45" />
                   <path
                     d="M348 388.22C354.88 424.913 369.213 451.287 391 467.34C397.88 437.527 404.187 411.153 409.92 388.22H348Z"
-                    fill="url(#lkf0)"
+                    fill="url(#lkf1)"
                   />
                   <path
                     d="M348 417.46C424.944 417.46 487.32 355.084 487.32 278.14C487.32 201.196 424.944 138.82 348 138.82C271.056 138.82 208.68 201.196 208.68 278.14C208.68 355.084 271.056 417.46 348 417.46Z"
-                    fill="url(#lkf0)"
+                    fill="url(#lkf1)"
                   />
                   <circle cx="440.29" cy="118.24" r="34.92" fill="#E26031" />
                 </svg>
@@ -931,15 +776,19 @@ export default function HomeEs() {
               </span>
               <p className="tag">
                 IA por WhatsApp hecha para ti, para salones, clínicas e
-                inmobiliarias de la Costa del Sol.
+                inmobiliarias de Fuengirola y la Costa del Sol.
               </p>
             </div>
             <div className="fcol">
               <h4>Explora</h4>
-              <a href="#how">Cómo funciona</a>
-              <a href="#why">Por qué nosotros</a>
-              <a href="#pricing">Precios</a>
+              <a href="/#how">Cómo funciona</a>
+              <a href="/#why">Por qué nosotros</a>
+              <a href="/#pricing">Precios</a>
+            </div>
+            <div className="fcol">
+              <h4>Zona</h4>
               <a href="/fuengirola">Fuengirola</a>
+              <a href="/">Costa del Sol</a>
             </div>
             <div className="fcol">
               <h4>Contacto</h4>
@@ -947,7 +796,7 @@ export default function HomeEs() {
                 Escríbenos por WhatsApp
               </a>
               <a href="mailto:info@holatandem.com">info@holatandem.com</a>
-              <a>Fuengirola, Málaga · España</a>
+              <span>Fuengirola, Málaga · España</span>
             </div>
             <div className="fcol">
               <h4>Legal</h4>

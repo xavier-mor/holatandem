@@ -40,7 +40,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(250,248,245,.85);backdro
 .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:#fff}
 .lang button{border:none;background:none;font-family:inherit;font-weight:700;font-size:.82rem;padding:7px 13px;cursor:pointer;color:var(--text);transition:.15s}
 .lang button.active{background:var(--navy);color:#fff}
-.burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px}
+.burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:10px 4px}
 .burger span{width:24px;height:2px;background:var(--navy);border-radius:2px}
 
 .hero{padding-top:64px}
@@ -156,7 +156,8 @@ footer .fbot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
 
-.founder-card{display:flex;gap:28px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:22px;padding:36px;box-shadow:var(--shadow);max-width:880px;margin:0 auto;text-align:left}
+.founders-grid{display:flex;flex-direction:column;gap:24px;max-width:880px;margin:0 auto}
+.founder-card{display:flex;gap:28px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:22px;padding:36px;box-shadow:var(--shadow);text-align:left}
 .founder-card .avatar{width:104px;height:104px;border-radius:50%;background:var(--grad);overflow:hidden;flex:none}
 .founder-card .avatar img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;display:block}
 .founder-card h3{font-family:var(--font-manrope),sans-serif;font-weight:800;color:var(--navy);font-size:1.15rem;margin-bottom:2px}
@@ -191,6 +192,7 @@ footer .fbot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 
 @media(max-width:860px){
   .founder-card{flex-direction:column;text-align:center;padding:28px}
+  .founder-card .avatar{margin:0 auto}
   .founder-points{justify-content:center}
   .hero-grid{grid-template-columns:1fr;gap:40px}
   .hero{padding-top:40px}
@@ -199,9 +201,9 @@ footer .fbot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   .pain{grid-template-columns:1fr}
   .feat-grid{grid-template-columns:repeat(2,1fr);gap:26px}
   .nav-links{display:none}
-  .nav-links.open{display:flex;position:absolute;top:76px;left:0;right:0;background:var(--bg);flex-direction:column;align-items:stretch;gap:14px;padding:20px 24px;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-  .nav-links.open a.link{padding:6px 0}
-  .nav-links.open .btn-navy{text-align:center}
+  .nav-links.open{display:flex;position:absolute;top:76px;left:0;right:0;background:var(--bg);flex-direction:column;align-items:stretch;gap:14px;padding:20px 24px;border-bottom:1px solid var(--line);box-shadow:var(--shadow);z-index:49}
+  .nav-links.open a.link{padding:10px 0;font-size:1.05rem}
+  .nav-links.open .btn-navy{text-align:center;padding:14px 26px}
   .burger{display:flex}
   .logo-mark{height:38px;width:auto}
   .logo-word{font-size:1.55rem}
@@ -232,20 +234,34 @@ footer .fbot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   .price-card .big{font-size:2.8rem}
   .price-card .plist{gap:10px 16px}
   .price-card .btn{width:100%}
-  /* tighten comparison table */
-  .compare .crow{grid-template-columns:1.3fr .85fr .85fr}
-  .compare .crow>div{padding:12px 10px;font-size:.8rem}
+  /* compare: drop generic-chatbot column, show feature + HolaTandem only */
+  .compare .crow{grid-template-columns:1fr 1fr}
+  .compare .crow>div:nth-child(3){display:none}
+  .compare .crow>div{padding:13px 12px;font-size:.88rem}
   .feat-grid{gap:22px 16px}
   .step{padding:26px 22px}
   .pain .row{padding:18px}
-  footer .ftop{gap:26px}
+  /* hide phone mockup — CTA reaches the screen faster */
+  .phone{display:none}
+  /* bigger tap targets for lang switcher */
+  .lang button{padding:10px 16px}
+  /* footer: 2-col grid, brand spans full width */
+  footer .ftop{display:grid;grid-template-columns:1fr 1fr;gap:28px 16px}
+  footer .ftop>div:first-child{grid-column:1/-1}
   footer{padding:44px 0 26px}
-  footer .fbot{gap:8px}
+  footer .fbot{flex-direction:column;gap:6px;text-align:center}
 }
 
 @media(max-width:380px){
+  section{padding:36px 0}
+  .features{padding:12px 0 36px}
+  .hero{padding-top:16px}
   .hero h1{font-size:1.78rem}
+  h2.sec{font-size:1.52rem}
   .logo-word{font-size:1.35rem}
   .logo-mark{height:34px}
-  .compare .crow>div{padding:10px 8px;font-size:.74rem}
+  .compare .crow>div{padding:11px 10px;font-size:.82rem}
+  .pain .row{padding:14px}
+  .step{padding:22px 18px}
+  .who .w{padding:22px 18px}
 }

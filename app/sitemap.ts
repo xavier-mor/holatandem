@@ -7,6 +7,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: "2026-07-07",
     },
     {
+      url: "https://holatandem.com/fuengirola",
+      lastModified: "2026-07-08",
+    },
+    {
       url: "https://holatandem.com/en",
       lastModified: "2026-07-07",
     },
