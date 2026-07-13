@@ -7,7 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
     description:
       "Done-for-you WhatsApp AI for Costa del Sol salons, clinics and estate agents.",
     start_url: "/",
-    display: "standalone",
+    display: "browser",
     background_color: "#FAF8F5",
     theme_color: "#0D2B45",
     icons: [
