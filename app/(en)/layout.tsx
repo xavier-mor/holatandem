@@ -16,8 +16,6 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
 });
 
-const FAVICON =
-  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='51 59 456 456'%3E%3Cpath d='M200.08 355.54C181.733 394.527 171.413 422.62 169.12 439.82C202.373 423.767 232.187 402.553 258.56 376.18L200.08 355.54Z' fill='%230D2B45'/%3E%3Ccircle cx='219' cy='257.5' r='148' fill='%230D2B45'/%3E%3Ccircle cx='348' cy='278.14' r='139' fill='%232DA5AE'/%3E%3Ccircle cx='440.29' cy='118.24' r='34.92' fill='%23E26031'/%3E%3C/svg%3E";
 
 const globalSchema = {
   "@context": "https://schema.org",
@@ -98,7 +96,14 @@ export const metadata: Metadata = {
     canonical: "/en",
     languages: { es: "/", en: "/en", "x-default": "/" },
   },
-  icons: { icon: FAVICON },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: '/assets/favicon-32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: '/assets/apple-touch-icon-180.png',
+    shortcut: '/favicon.ico',
+  },
   openGraph: {
     type: "website",
     siteName: "HolaTandem",

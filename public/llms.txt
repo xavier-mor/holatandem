@@ -1,0 +1,34 @@
+# HolaTandem
+> Done-for-you WhatsApp AI for Costa del Sol salons, aesthetic clinics and real estate agents.
+> Answers leads instantly, books appointments and follows up in any language.
+> Founded by Elena Ignat and Ana-Maria, based in Fuengirola, Málaga, Spain.
+> Supports: Spanish, English, Russian, German, French, Romanian.
+> GDPR-compliant, EU-hosted infrastructure.
+
+## Product
+- What it is: A managed WhatsApp AI assistant service (not a self-serve chatbot).
+- Who it is for: Hair salons, aesthetic clinics, and real estate agents in Costa del Sol, Spain.
+- How it works: White-glove setup in days; AI handles enquiries 24/7; human handoff on demand.
+- No long-term contracts. Cancel anytime.
+
+## Key pages
+- Homepage (ES): https://holatandem.com/
+- Homepage (EN): https://holatandem.com/en
+- Local landing page — Fuengirola: https://holatandem.com/fuengirola
+- Privacy Policy (ES): https://holatandem.com/privacy
+- Privacy Policy (EN): https://holatandem.com/en/privacy
+- Legal Notice (ES): https://holatandem.com/aviso-legal
+- Legal Notice (EN): https://holatandem.com/en/legal-notice
+
+## Team
+- Elena Ignat — Founder · AI & Process Transformation · https://www.linkedin.com/in/elenaignat/
+- Ana-Maria — Co-founder · Sales & Growth · https://www.linkedin.com/in/ana-maria-ignat-berget/
+
+## Contact
+- WhatsApp: https://wa.me/34638054941
+- Email: info@holatandem.com
+- Location: Fuengirola, Málaga, Spain
+
+## Social
+- Instagram: https://www.instagram.com/holatandem/
+- Facebook: https://www.facebook.com/share/1J4ap9PgpL/

@@ -28,6 +28,13 @@ export const metadata: Metadata = {
     ],
     locale: "es_ES",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Asistente de WhatsApp para negocios en Fuengirola | HolaTandem",
+    description:
+      "Automatiza WhatsApp para tu negocio en Fuengirola. Responde al instante, agenda citas y hace seguimiento en el idioma de tu cliente. Lo configuramos todo.",
+    images: ["https://holatandem.com/assets/og_image.png"],
+  },
 };
 
 const WA_ES =

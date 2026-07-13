@@ -15,6 +15,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: "2026-07-07",
     },
     {
+      url: "https://holatandem.com/en/privacy",
+      lastModified: "2026-07-07",
+    },
+    {
+      url: "https://holatandem.com/en/legal-notice",
+      lastModified: "2026-07-07",
+    },
+    {
       url: "https://holatandem.com/privacy",
       lastModified: "2026-06-02",
     },
